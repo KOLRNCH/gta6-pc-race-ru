@@ -174,6 +174,40 @@ def test_mocked_gemini_batch_preserves_placeholders(monkeypatch) -> None:
     assert calls_second == 0
 
 
+def test_call_gemini_batch_falls_back_on_503(monkeypatch) -> None:
+    import io
+    import urllib.error
+    import src.sync_and_translate as sat
+
+    calls: list[str] = []
+
+    class FakeResp:
+        def __init__(self, body: dict) -> None:
+            self._raw = json.dumps(body).encode("utf-8")
+
+        def read(self) -> bytes:
+            return self._raw
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+    def fake_urlopen(req, timeout=60):
+        calls.append(req.full_url)
+        if "model-a" in req.full_url:
+            raise urllib.error.HTTPError(req.full_url, 503, "Service Unavailable", {}, io.BytesIO(b"busy"))
+        return FakeResp({"candidates": [{"content": {"parts": [{"text": json.dumps({"translations": ["Готово"]})}]}}]})
+
+    monkeypatch.setattr(sat.urllib.request, "urlopen", fake_urlopen)
+    monkeypatch.setattr(sat.time, "sleep", lambda _: None)
+
+    out = sat.call_gemini_batch(["Done"], api_key="k", models=("model-a", "model-b"))
+    assert out == ["Готово"]
+    assert any("model-b" in u for u in calls)
+
+
 def test_build_py_renders_russian_html(tmp_path: Path) -> None:
     upstream_sample = ROOT / "src" / "data_upstream.json"
     assert upstream_sample.exists()
