@@ -51,8 +51,8 @@
       "Барьер «внутриигрового состояния» был преодолен 24 ноября, через день после появления исполняемого файла. К вечеру того же дня публичный форк, ныне известный как victory-fork, уже демонстрировал первую игровую сцену под управлением игрока, а другие пользователи с тех пор запустили её на своих машинах с видеокартами NVIDIA и AMD.",
       "Большая часть картинки на месте, и сама игра держится достойно. Форк отрисовывает первую комнату, отображает персонажей, текстуры, небо и освещенные солнцем поверхности, хотя затененные области всё еще слишком темные. AnyXboxX сообщает о полном воспроизведении всех кат-сцен, сборки кода форка позволяют пройти первые две миссии, PortWatch описывает картинку форка AMD как близкую к розничной версии игры, а собственная трассировка лучей игры теперь работает в трех публичных кодовых базах, в одной из них — по умолчанию.",
       "Стабильность теперь подтверждена десятью отчетами, превышающими требуемую планку: 30 минут на RTX 4090 в открытом пул-реквесте, 36 минут на RTX 4090 в сессии неназванного тестера, записанной Kelvaroq, 39 минут на Radeon RX 6600 XT с жестким диском в README от ruff-lab, 41 минута на Radeon RX 7900 XTX в README от VIctory-7900XTX, около 45 минут прохождения двух миссий, переданных AnyXboxX, 49 минут игры в README от victory-fork до сбоя графического драйвера, 58 минут на RTX 3070 в README от victory-unified, часовые сессии на RTX 4060 Ti в README от VI-BR-PORT, 77 минут прохождения первых двух миссий на Radeon RX 9070 XT в README от klbf-lab и более 90 минут на RTX 3050 в последней README от ztrx, чей репозиторий с тех пор перестал отвечать. Осталось разобраться со скоростью, и 25 ноября дело сдвинулось с мертвой точки. В первых локациях victory-fork частота кадров выросла с 3.5–4 до 7–8 на RTX 4070, а затем до 10.3 с тремя изменениями, которые по умолчанию отключены; Kelvaroq заявляет о 10 кадрах в типичных сценах вступительной миссии в 4K на RTX 5080, а victory-perf и Flamingo сообщают о 9 и более кадрах в первых интерьерах при сниженном разрешении — всё на одной машине каждый. Это лучшие показатели. Мейнтейнер victory-fork утверждает, что эти цифры получены в статичной сцене, а средний показатель за игровую сессию составил 4.5 кадра, при этом половину времени кадры длились около 490 миллисекунд, пока игра стримит ассеты и ожидает завершения маппинга страниц памяти; две попытки исправить это были отменены. Тот же README предположил, что сцена выдавала бы около 20 кадров на его тестовой видеокарте, если убрать всю работу слоя, а victory-fork и Kelvaroq называют единственным ограничением для мощных карт поток, отправляющий задачи на GPU. Вечером того же дня victory-fork заявил об отсутствии дальнейшего прироста и сообщил, что проверка открытых пул-реквестов не выявила ни одного крупного, хотя новый захват кадров предполагает, что потолок видеокарты может быть выше 20. Вечером 25 ноября мейнтейнер AnyXboxX замерил медиану 12.5 в открытом мире на RTX 4070 SUPER после перехода на упакованную версию VIctory, которую они называют Neptune (длительность сессии не указана), а позже — 13.8 в автоматизированных 13-минутных прогонах с новым набором настроек по умолчанию. Неподтвержденный запуск читателем на RTX 4090 до применения этих настроек показал меньший результат. С тех пор README указал в качестве ограничений 32 GB оперативной памяти и 12 GB видеопамяти, с просадками до 1–6 кадров во время стриминга мира. В неподтвержденной таблице тестов проекта лаунчера с одного ПК с RTX 4060 и 8 GB сообщается о 14 кадрах за 10 минут на более ранней сборке AnyXboxX и около 20 в среднем на новейшей сборке Flamingo с битой картинкой и без указания длительности сессии. Позже тем же вечером VIctory-7900XTX, форк, оптимизированный на Radeon RX 7900 XTX, показал 13–22 кадра во вступлении и первой миссии на лодке и 6–10 в напряженной погоне по улицам, против 280 миллисекунд на кадр в тех же сценах двумя днями ранее по их собственным данным, а владелец PortWatch утверждает, что подтвердил сборку на среднем значении около 16. К позднему вечеру README от victory-fork показывал 9–12 кадров в помещениях и легких сценах на открытом воздухе и 5–6 в тяжелых сценах во время игры, в сессиях, заканчивавшихся сбоем графического драйвера через 30–50 минут. Обычная игра шла медленнее: klbf-lab выдал в среднем 5.2 за 77 минут, форк Belobug сообщает о 5–7 кадрах в статике в тяжелой сцене, VItoriaBr — до 6 на RTX 5060 Ti, и до утра 26 ноября лучшие средние показатели за долгие сессии составляли около 10 кадров за 36 минут на RTX 4090 в сессии неназванного тестера, которую записывает Kelvaroq, 8.6 за 24 минуты в логе Flamingo и около 7.6 за 30 минут на RTX 4090. XCL, отдельная кодовая база, сообщает о 5 кадрах в своем 3D-мире на RTX 5090 без длительных запусков. PortWatch сообщил вечером 25 ноября, что стрим приватной сборки показал 5–24 кадра в свободном режиме, около 12–15 по оценке владельца: данные самоотчетные, код не публичен, и нет подтверждения, что это именно отрисованные кадры. Kelvaroq заявляет, что слой памяти, находящийся в тестировании, сокращает объем копируемой каждый кадр памяти более чем на девять десятых в первых сценах, но частота кадров пока не указана. Рано утром 26 ноября PortWatch в обновлениях, сделанных временным редактором, сообщил, что видел приватную сборку CGBJ и зафиксировал в среднем 25 кадров в геймплее на карте NVIDIA, затем снизил это значение до стабильных 20, а утром 26 ноября вернул к 25, когда код сборки стал публичным как форк VIctory-7900XTX: длительность сессии не указана, нет данных о том, отрисовывается ли каждый кадр, а журнал самого репозитория фиксирует медиану около 17–18 кадров на вступительной улице на RTX 5090 около полуночи UTC, при этом стабильные 20 кадров тогда еще были актуальны. Тот репозиторий перестал отвечать в течение часа. Vice-Tay, пересобранный на этом коде тем же утром, показывает медиану 14.3 за 10-минутную сессию на RTX 4090 в 4K на профиле старшей консоли без запущенных фоновых задач на ПК; 31-минутная сессия с наблюдаемыми 20–25 кадрами, которую README вел несколько минут, больше не подтверждается. Публичный форк VIctory-NVIDIA с позднего вечера 25 ноября сообщает о 20–22 кадрах в среднем в помещениях во вступлении на RTX 5070 с Ryzen 7 9800X3D на профиле младшей консоли с отрисовкой мира в половину масштаба, опять же без указания длительности сессии; тот же код показал 7–12 кадров на RTX 4060 Ti с более медленным процессором. 26 ноября VIctory-7900XTX поставил себе цель достичь стабильных 30 кадров без трассировки лучей и сообщил о 13–17 кадрах на городской улице или около 19 с двумя патчами рендерера, которые по умолчанию отключены. Позже тем же утром klbf-lab сообщил о сессии с контроллером на новой тестовой сборке на базе Neptune, на Radeon RX 9070 XT с профилем младшей консоли и апскейлингом: 37 минут в открытом мире без вылетов со средним значением 14.0, включая кадры самого слоя. Vice-Tay добавил второй автоматизированный 10-минутный прогон на своем RTX 4090 с медианой 20.8 во вступительных помещениях на профиле младшей консоли (который не является стандартным), а лог игры фиксирует сессию, пройденную вручную на этом профиле через скриптовый геймпад: 56 минут без вылетов через вступление, миссию на лодке, лагерь и несколько драк, при 20 кадрах во вступительных помещениях, 16–19 на воде, 12–16 в лагере и 8–13 в последние 15 минут, по мере того как потребление памяти игрой выросло с 33 до 47.8 GB, превысив 43.4 GB доступных на ПК. Это 15.2 кадра в среднем согласно арифметике этой страницы по минутным медианам, без собственного итогового показателя за всю сессию, а лог называет рост потребления памяти вероятной причиной замедления. Таким образом, требуемая планка достигнута: около 15 кадров на RTX 4090 и около 14 на Radeon среднего сегмента, 20 кадров были зафиксированы только в самых легких сценах, а самая быстрая сборка замедляется по мере продолжения сессии. Форк из списка наблюдения, собравший код, который PortWatch помечает как CGBJ, показал медиану 2.7 на RTX 4070 Ti с 32 GB памяти — это неподтвержденный сторонний тест. Для статуса «играбельно» требуется 20 кадров в течение 30 минут за одну игровую сессию.",
-      "Takedowns are now on the record. On 24 November GitHub published a Take-Two notice against Leonida and applied it to its 3,007 forks. Its argument is not specific to Leonida, and no other listed project has been named so far, though one has since removed the game's name from its code and another has republished with a new history. On 25 November two outlets reported, from a reporter's post, that Take-Two is also sending notices over social media posts that show footage of unofficial builds. VGTimes also reported that day, and TalkEsport on 26 November, that the developer of the private build omonkey reports receiving a message from Rockstar and has stopped streaming the work; the message is not public and Rockstar has not commented. On 25 November the repositories of ztrx and victory-perf, two public builds of victory-fork's code, stopped answering, and PortWatch reported the first one's account gone, with no notice published and the reason not known in either case. Late that evening the repository of keylime, a separate runtime, stopped answering too, again with no notice published. PortWatch also reported that evening, on its owner's word, that the private build omonkey had been taken down. On the morning of 26 November the repository PortWatch had just named as the public code of CGBJ stopped answering within the hour, again with no notice published and the reason not known. A notice cannot reach private builds, but it can end the open collaboration the public ones rely on.",
-      "Outside check: small play-money markets on Manifold. One asking whether the game is recompiled into a PC build before 30 November stood at about 6 in 10 on 24 November, before the notice, and at 57% on the evening of 25 November. Another, with four traders, gave about 1 in 5 that GitHub publishes a Take-Two notice naming VIctory by the end of the year."
+      "Требования об удалении теперь задокументированы. 24 ноября GitHub опубликовала требование Take-Two в отношении Leonida и применила его к 3007 форкам проекта. Аргументация не ограничивается только Leonida, и пока ни один другой проект из списка не был упомянут, хотя один из них уже удалил название игры из своего кода, а другой был переопубликован с новой историей. 25 ноября два издания сообщили со ссылкой на пост репортера, что Take-Two также рассылает требования из-за постов в социальных сетях, демонстрирующих кадры неофициальных сборок. VGTimes также сообщила об этом в тот же день, а TalkEsport 26 ноября — о том, что разработчик приватной сборки omonkey получил сообщение от Rockstar и прекратил стриминг своей работы; сообщение не является публичным, а Rockstar не дала комментариев. 25 ноября репозитории ztrx и victory-perf, двух публичных сборок кода victory-fork, перестали отвечать, а PortWatch сообщила об исчезновении аккаунта первого из них без публикации каких-либо уведомлений; причина в обоих случаях неизвестна. Поздно вечером того же дня перестал отвечать репозиторий keylime, отдельной среды выполнения, также без публикации уведомлений. PortWatch вечером того же дня со слов владельца сообщила, что приватная сборка omonkey была удалена. Утром 26 ноября репозиторий, который PortWatch только что указала как публичный код CGBJ, перестал отвечать в течение часа, опять же без публикации уведомлений и с неизвестной причиной. Требование не может затронуть приватные сборки, но оно способно положить конец открытому сотрудничеству, на котором держатся публичные проекты.",
+      "Внешняя проверка: небольшие рынки предсказаний на Manifold. Один из вопросов — будет ли игра перекомпилирована в ПК-сборку до 30 ноября — оценивался примерно как 6 к 10 на 24 ноября (до появления требования) и в 57% вечером 25 ноября. Другой рынок, с четырьмя участниками, дает около 1 к 5 на то, что GitHub опубликует требование Take-Two с упоминанием VIctory до конца года."
     ],
     "revisions": [
       {
@@ -164,10 +164,10 @@
       "pos": 1,
       "name": "victory-fork",
       "repo": "fxceless/victory-fork",
-      "kind": "Fork of VIctory, formerly named victory-gta6",
+      "kind": "Форк VIctory, ранее называвшийся victory-gta6",
       "stage": 6,
-      "basis": "Project README and commit notes, open pull requests measured by their authors, and builds that use its code",
-      "status": "Its README (08:31 UTC) heads its status with play that is slow: about 8 to 9.5 frames a second at the first boat mission on an RTX 4070 and 10 to 14 in lighter views, counting only frames of the world, with its tester having played from the opening past the first boat mission and the graphics device still lost now and then 30 to 50 minutes into a session. It measures those rates with a texture pass on a thread of its own that is still off by default, against 6.2 to 6.7 without it, says its defaults are slower and that shadowed areas are still black; that is in-game by this page's bar, which asks for 20.",
+      "basis": "Проект README и заметки к коммитам, открытые пул-реквесты, отсортированные по авторам, и сборки, использующие этот код",
+      "status": "Его README (08:31 UTC) начинает статус с описания медленной игры: около 8–9,5 кадров в секунду на первой лодочной миссии на RTX 4070 и 10–14 в менее нагруженных сценах (учитываются только кадры игрового мира). Тестировщик прошел игру от начала до первой лодочной миссии, при этом сбой графического драйвера случается каждые 30–50 минут сессии. Эти показатели измерены с использованием прохода текстур в отдельном потоке, который по умолчанию отключен (против 6,2–6,7 без него). Указано, что настройки по умолчанию работают медленнее, а затененные области остаются черными; это считается «играбельно» по планке данной страницы, которая требует 20 кадров.",
       "changed": "2026-11-26T08:59:00Z",
       "lanes": {
         "picture": {
@@ -177,14 +177,14 @@
         "speed": {
           "low": 5,
           "high": 14,
-          "text": "8 to 9.5 fps at the boat mission, 10 to 14 in lighter views, 5 to 6 in heavy ones"
+          "text": "8–9,5 fps на лодочной миссии, 10–14 в легких сценах, 5–6 в тяжелых"
         },
         "stability": {
           "minutes": 49,
-          "text": "49 minutes of play, then the card was lost"
+          "text": "49 минут игры, затем произошел сбой видеокарты"
         }
       },
-      "lead": "victory-fork, a public fork of VIctory,",
+      "lead": "victory-fork, публичный форк VIctory,",
       "tested": {
         "os": [
           "Windows"
@@ -198,27 +198,27 @@
       "pos": 2,
       "name": "AnyXboxX",
       "repo": "LooperSalty/AnyXboxX",
-      "kind": "Builds on VIctory's code, kept in its own repository and moved on 25 November to a packaged edition it calls Neptune",
+      "kind": "Сборки на коде VIctory, хранящиеся в собственном репозитории и переведенные 25 ноября в упакованную версию, которую называют Neptune",
       "stage": 6,
-      "basis": "Project README, run notes and third-party notices: the maintainer's own measurements on two machines, and one contributor's report that the maintainer relays; two outside runs, a reader's and a launcher project's, are noted in the status and are not verified",
-      "status": "Its README (23:53 UTC on 25 November) reports about 14 to 17 frames a second in the world on an RTX 4070 SUPER with its default settings, a median of 13.7 over 7 minutes and 13.8 over automated 13-minute runs without a crash, on a base it calls Neptune, a packaged edition of VIctory whose author it says has no public contact; it now adds that a 32 GB machine is short of memory and a 12 GB card runs out of texture room, with dips to 1 to 6 while the world streams, and that a mode that favours the picture runs at about 7 to 9. Two outside runs are on record and neither is verified: a reader's 12-minute run on an RTX 4090 with earlier settings, posted to this page's issues, measured a median of 2 that rose to about 7 in its last two minutes, and a launcher project's 10-minute run of an earlier build on an RTX 4060 with 8 GB reported about 14; the README's older figures stand for its previous base, among them a contributor's relayed 45 minutes through the first two missions at about 2.",
+      "basis": "Проект README, заметки о запуске и сторонние уведомления: собственные замеры сопровождающего на двух машинах и отчет одного из контрибьюторов, переданный сопровождающим; два сторонних запуска (от читателя и проекта лаунчера) отмечены в статусе, но не верифицированы",
+      "status": "Его README (23:53 UTC 25 ноября) сообщает об около 14–17 кадрах в секунду в игровом мире на RTX 4070 SUPER с настройками по умолчанию, медиана 13,7 за 7 минут и 13,8 за автоматизированные 13-минутные прогоны без вылетов. База называется Neptune — это упакованная версия VIctory, автор которой, по словам сопровождающего, не имеет публичных контактов. Теперь добавлено, что машине с 32 GB не хватает памяти, а карте с 12 GB не хватает места для текстур, с просадками до 1–6 кадров во время подгрузки мира, а режим с приоритетом качества изображения работает на 7–9 кадрах. Зафиксированы два сторонних запуска, оба не верифицированы: 12-минутный прогон читателя на RTX 4090 с ранними настройками (опубликован в issues страницы) показал медиану 2, которая выросла до 7 в последние две минуты; 10-минутный прогон ранней сборки проектом лаунчера на RTX 4060 с 8 GB показал около 14 кадров. Старые цифры README относятся к предыдущей базе, среди них — переданный контрибьютором отчет о 45 минутах прохождения первых двух миссий при 2 кадрах в секунду.",
       "changed": "2026-11-26T01:37:00Z",
       "lanes": {
         "picture": {
           "step": 3,
-          "text": "even stand-in light indoors, some parts missing"
+          "text": "ровное временное освещение в помещениях, некоторые части отсутствуют"
         },
         "speed": {
           "low": 1,
           "high": 17,
-          "text": "14 to 17 fps, dips to 1 to 6 while the world streams"
+          "text": "14–17 fps, просадки до 1–6 во время подгрузки мира"
         },
         "stability": {
           "minutes": 45,
-          "text": "45 minutes, relayed, on its earlier base"
+          "text": "45 минут, со слов, на предыдущей базе"
         }
       },
-      "lead": "AnyXboxX, a build of VIctory's code on a base it calls Neptune,",
+      "lead": "AnyXboxX, сборка кода VIctory на базе, которую называют Neptune,",
       "tested": {
         "os": [
           "Windows",
@@ -234,24 +234,24 @@
       "pos": 3,
       "name": "klbf-lab",
       "repo": "PastiiJay/klbf-lab",
-      "kind": "Build of VIctory tested on an AMD Radeon card; its newest test build is based on the Neptune edition of VIctory",
+      "kind": "Сборка VIctory, протестированная на видеокарте AMD Radeon; её новейшая тестовая сборка основана на версии Neptune от VIctory",
       "stage": 6,
-      "basis": "Project README, its test-build branch and its measuring tool: the maintainer's own figures from one machine in one session. The tool reads the layer's own frame lines and the measured settings use upscaling and no frame generation; not confirmed by anyone else",
-      "status": "Its README (09:38 UTC) reports a new test build, based on the Neptune edition of VIctory, in a session played with a controller on a Radeon RX 9070 XT on the smaller console's profile with upscaling: 37 minutes so far on foot and driving in the open world of a title it does not name, without a crash, at 14.0 frames a second on average and a median of 14.5, with freezes that take its lowest 1 percent of samples to about 0.4. It lists water surfaces and car glass that are not drawn, black mirrors and flickering shadows near trees, and its earlier record is 77 minutes at about 5.2 on its previous build.",
+      "basis": "Проект README, его ветка с тестовыми сборками и инструмент для замеров: данные самого мейнтейнера с одного ПК за одну сессию. Инструмент считывает собственные кадры слоя, а замеры проводились с использованием апскейлинга и без генерации кадров; никем другим не подтверждено",
+      "status": "В README (09:38 UTC) сообщается о новой тестовой сборке, основанной на версии Neptune от VIctory, в сессии с использованием контроллера на Radeon RX 9070 XT с профилем младшей консоли и апскейлингом: 37 минут игры пешком и за рулем в открытом мире неназванного тайтла без вылетов, со средней частотой 14.0 кадров в секунду и медианой 14.5, при этом фризы опускают нижний 1 процент выборки до 0.4. Указано, что водные поверхности и автомобильные стекла не отрисовываются, зеркала черные, а тени возле деревьев мерцают; предыдущий рекорд составлял 77 минут при 5.2 кадрах в секунду на прошлой сборке.",
       "changed": "2026-11-26T09:38:00Z",
       "lanes": {
         "picture": {
           "step": 3,
-          "text": "faces and hair right; water surfaces and car glass not drawn"
+          "text": "лица и волосы отображаются корректно; водные поверхности и автомобильные стекла не отрисовываются"
         },
         "speed": {
           "low": 14.0,
           "high": 14.0,
-          "text": "14.0 fps average over 37 minutes of play so far"
+          "text": "Среднее значение 14.0 fps за 37 минут игры"
         },
         "stability": {
           "minutes": 37,
-          "text": "37 minutes so far, still running; 77 on an earlier build"
+          "text": "37 минут, всё ещё работает; 77 минут на предыдущей сборке"
         }
       },
       "lead": "klbf-lab, сборка VIctory, протестированная на картах AMD,",
@@ -269,24 +269,24 @@
       "pos": 4,
       "name": "VIctory-Belobug-AMD",
       "repo": "Belobug/VIctory-Belobug-AMD",
-      "kind": "Fork of VIctory for AMD Radeon cards, built on VIctory's main branch and its pull requests",
+      "kind": "Форк VIctory для видеокарт AMD Radeon, собранный на основе главной ветки VIctory и её пул-реквестов",
       "stage": 6,
-      "basis": "Project README, tested on one machine, and PortWatch, whose owner reports having seen the build",
-      "status": "Its README now reports the world at 5 to 8 frames a second on a Radeon RX 9070 XT: 7.2 to 7.7 standing still in a scene of 8,800 draws and less while driving, lit with textures, people, vehicles, vegetation, water and sky, the game's own sun and lamp shadows, and a stand-in for ray-traced light that now follows the game's sky by day and by night. PortWatch, whose owner reports having seen the build, says it looks close to the retail game, plays through missions at about 8 frames a second and rarely crashes, and relays a report of ray tracing working on AMD that this README does not yet bear out.",
+      "basis": "Проект README, протестированный на одном ПК, и PortWatch, владелец которого утверждает, что видел эту сборку",
+      "status": "В README сообщается о частоте 5–8 кадров в секунду в открытом мире на Radeon RX 9070 XT: 7.2–7.7 при статичной сцене с 8800 вызовами отрисовки и меньше во время вождения, с освещением, текстурами, людьми, транспортом, растительностью, водой и небом, собственными тенями от солнца и ламп, а также заменителем трассировки лучей, который теперь следует за небом в игре днем и ночью. PortWatch, владелец которого утверждает, что видел сборку, говорит, что она выглядит близко к релизной версии, позволяет проходить миссии при 8 кадрах в секунду и редко вылетает, а также передает отчет о работе трассировки лучей на AMD, что пока не подтверждается данной README.",
       "changed": "2026-11-26T04:54:00Z",
       "lanes": {
         "picture": {
           "step": 4,
-          "text": "lit and whole, stand-in light follows the sky"
+          "text": "освещено и целостно, заменитель света следует за небом"
         },
         "speed": {
           "low": 5,
           "high": 8,
-          "text": "5 to 8 fps, less while driving"
+          "text": "5–8 fps, меньше во время вождения"
         },
         "stability": {
           "minutes": 15,
-          "text": "a 15 minute drive"
+          "text": "15-минутная поездка"
         }
       },
       "tested": {
@@ -302,10 +302,10 @@
       "pos": 5,
       "name": "ztrx",
       "repo": "Zettrox/ztrx",
-      "kind": "Build of victory-fork for NVIDIA cards",
+      "kind": "Сборка victory-fork для видеокарт NVIDIA",
       "stage": 6,
-      "status": "Its repository stopped answering by 16:57 UTC on 25 November, and PortWatch reports the account that published it is gone too, with no published takedown notice naming it and the reason not known. Its README last reported the whole opening mission playable on an RTX 3050 with 8 GB, in one session of more than 1 hour 30 minutes without a crash, at 1 to 3 frames a second with everything in shadow black, and PortWatch says it verified the build going on into the next mission.",
-      "basis": "Project README as last read at 16:31 UTC on 25 November, before its repository stopped answering, and PortWatch, which first listed it as a private build and reports the account gone",
+      "status": "Репозиторий перестал отвечать к 16:57 UTC 25 ноября, и PortWatch сообщает, что аккаунт, опубликовавший его, также удален, при этом официального требования об удалении (DMCA) с указанием названия или причины не поступало. В README ранее сообщалось, что вся вступительная миссия играбельна на RTX 3050 с 8 ГБ ОЗУ, в одной сессии продолжительностью более 1 часа 30 минут без вылетов, при 1–3 кадрах в секунду с черными тенями, а PortWatch заявляет, что подтвердил работоспособность сборки в следующей миссии.",
+      "basis": "Проект README по состоянию на 16:31 UTC 25 ноября, до того как репозиторий перестал отвечать, и PortWatch, который сначала пометил его как приватную сборку, а затем сообщил об удалении аккаунта",
       "changed": "2026-11-25T17:50:00Z",
       "lanes": {
         "picture": {
@@ -315,11 +315,11 @@
         "speed": {
           "low": 1,
           "high": 3,
-          "text": "1 to 3 fps"
+          "text": "От 1 до 3 fps"
         },
         "stability": {
           "minutes": 90,
-          "text": "over 90 minutes"
+          "text": "более 90 минут"
         }
       },
       "tested": {
@@ -336,24 +336,24 @@
       "pos": 6,
       "name": "VItoriaBr",
       "repo": "uiliannn/VItoriaBr",
-      "kind": "Build of VIctory and victory-fork, tested on NVIDIA cards",
+      "kind": "Сборка VIctory и victory-fork, протестированная на картах NVIDIA",
       "stage": 6,
-      "status": "Its README (04:09 UTC) reports the open world on an RTX 5060 Ti at 4 to 6 frames a second on its current settings, lit by a shaded stand-in for ambient light, with long sessions without a driver timeout, occasional crashes when entering the world and in some scenes, and one measured example of its process staying up for 2 hours 12 minutes. It adds a best open-world measurement of 22 from an experimental build that is not yet in its default settings, calls its figures self-reported and for PortWatch to confirm, and PortWatch reports its live stream reaching the game's second mission at up to 4.",
-      "basis": "Project README, and PortWatch's report of its live stream",
+      "status": "Его README (04:09 UTC) сообщает, что открытый мир на RTX 5060 Ti работает при 4–6 кадрах в секунду на текущих настройках, освещенный затененным заменителем окружающего света, с длительными сессиями без сбоя графического драйвера, периодическими вылетами при входе в мир и в некоторых сценах, а также одним зафиксированным примером работы процесса в течение 2 часов 12 минут. Добавляется лучший показатель открытого мира в 22 кадра из экспериментальной сборки, которая еще не использует настройки по умолчанию; данные называются самоотчетами, ожидающими подтверждения от PortWatch, а PortWatch сообщает, что его трансляция достигла второй миссии игры при частоте до 4 кадров.",
+      "basis": "Проект README и отчет PortWatch о его прямой трансляции",
       "changed": "2026-11-26T04:31:00Z",
       "lanes": {
         "picture": {
           "step": 4,
-          "text": "lit with a shaded stand-in light"
+          "text": "освещено затененным заменителем света"
         },
         "speed": {
           "low": 4,
           "high": 6,
-          "text": "4 to 6 fps on its current settings"
+          "text": "от 4 до 6 fps на текущих настройках"
         },
         "stability": {
           "minutes": 132,
-          "text": "2 h 12 min of process uptime, one example"
+          "text": "2 ч 12 мин работы процесса, один пример"
         }
       },
       "tested": {
@@ -369,20 +369,20 @@
       "pos": 7,
       "name": "victory-perf",
       "repo": "vitutu1/victory-perf",
-      "kind": "Fork of victory-fork aimed at frame rate, published on 25 November",
+      "kind": "Форк victory-fork, нацеленный на частоту кадров, опубликован 25 ноября",
       "stage": 6,
-      "basis": "Project README as last read at 18:55 UTC on 25 November, before its repository stopped answering: the maintainer's own figures from one machine, not confirmed by anyone else",
-      "status": "Its repository stopped answering over git between 18:56 and 19:28 UTC on 25 November, with no published takedown notice naming it and the reason not known. Its README last reported the opening mission's interiors under player control at 9 to 14 frames a second on an RTX 4070 SUPER at reduced resolution and 4.5 to 6.5 in heavy scenes, figures from one machine that state no run length and that nobody else confirmed.",
+      "basis": "Проект README по состоянию на 18:55 UTC 25 ноября, до того как репозиторий перестал отвечать: собственные цифры мейнтейнера с одной машины, никем не подтвержденные",
+      "status": "Его репозиторий перестал отвечать по git в период между 18:56 и 19:28 UTC 25 ноября, при этом опубликованных требований об удалении (DMCA) с упоминанием проекта нет, причина неизвестна. Его README в последний раз сообщал о прохождении интерьеров первой миссии под управлением игрока при 9–14 кадрах в секунду на RTX 4070 SUPER в пониженном разрешении и 4,5–6,5 в тяжелых сценах; это цифры с одной машины, без указания длительности сессии и без подтверждения другими пользователями.",
       "changed": "2026-11-25T19:34:00Z",
       "lanes": {
         "picture": {
           "step": 3,
-          "text": "shade lit by stand-ins"
+          "text": "освещение затененными заменителями"
         },
         "speed": {
           "low": 4.5,
           "high": 14,
-          "text": "4.5 to 14 fps by scene, unconfirmed"
+          "text": "от 4,5 до 14 fps в зависимости от сцены, не подтверждено"
         },
         "stability": {
           "minutes": null,
@@ -403,10 +403,10 @@
       "pos": 8,
       "name": "ScarlettPort",
       "repo": "ZigZagBoi1/ScarlettPort",
-      "kind": "Build of victory-fork with its own changes",
+      "kind": "Сборка victory-fork с собственными изменениями",
       "stage": 6,
-      "basis": "Project README, measured on one machine",
-      "status": "Its README (07:32 UTC) reports an open-world title it does not name at 5.4 frames a second while walking and turning in the world on an RTX 3060 on the smaller console's profile, up from about 4, with steady pacing and with hair and lighting now right in the opening cell. It says shadowed areas are too dark because ray tracing is off, that the waits around the card and not the card itself limit the speed, which is far from 30, and that it is not yet verified playable.",
+      "basis": "Проект README, замеры на одной машине",
+      "status": "README (07:32 UTC) сообщает об игре в открытом мире (название не указано), которая выдает 5.4 кадра в секунду при ходьбе и поворотах на RTX 3060 с использованием профиля младшей консоли (ранее было около 4). Наблюдается стабильный темп, а волосы и освещение в начальной локации теперь отображаются корректно. Отмечается, что затененные области слишком темные из-за отключенной трассировки лучей, скорость ограничена ожиданием данных, а не самой видеокартой, что далеко от 30 кадров, и статус «играбельно» пока не подтвержден.",
       "changed": "2026-11-26T08:05:00Z",
       "lanes": {
         "picture": {
@@ -416,7 +416,7 @@
         "speed": {
           "low": 5.4,
           "high": 5.4,
-          "text": "5.4 fps while walking and turning"
+          "text": "5.4 fps при ходьбе и поворотах"
         },
         "stability": {
           "minutes": null,
@@ -436,22 +436,22 @@
       "pos": 9,
       "name": "omonkey",
       "repo": "",
-      "kind": "Private build based on victory-fork. No public code",
+      "kind": "Приватная сборка на базе victory-fork. Публичного кода нет",
       "stage": 6,
-      "basis": "PortWatch, which watched the work on live streams and now reports it taken down on its owner's word, and VGTimes, which reported the developer's statement about a letter from Rockstar",
-      "status": "PortWatch, which followed this private build on live streams, removed it from its board at 18:19 UTC on 25 November, saying on its owner's word that the build has been taken down; its code was never public, so nothing can be checked. VGTimes had reported earlier that day that its developer reported receiving a letter from Rockstar and stopped streaming, and the build last ran at about 5 frames a second in the opening prison scene.",
+      "basis": "PortWatch, следивший за работой на стримах и теперь сообщающий об удалении по словам владельца, и VGTimes, сообщивший о заявлении разработчика касательно письма от Rockstar",
+      "status": "PortWatch, который отслеживал эту приватную сборку на стримах, убрал её из своего списка в 18:19 UTC 25 ноя, сославшись на слова владельца об удалении сборки; её код никогда не был публичным, поэтому проверить ничего нельзя. VGTimes ранее в тот же день сообщал, что разработчик получил письмо от Rockstar и прекратил стриминг, а в последний раз сборка выдавала около 5 кадров в секунду в начальной тюремной сцене.",
       "changed": "2026-11-25T18:36:00Z",
       "nolink": true,
       "private": true,
       "lanes": {
         "picture": {
           "step": 2,
-          "text": "lit, major effects missing"
+          "text": "освещено, отсутствуют основные эффекты"
         },
         "speed": {
           "low": 5,
           "high": 5,
-          "text": "about 5 fps"
+          "text": "около 5 fps"
         },
         "stability": {
           "minutes": null,
@@ -467,22 +467,22 @@
       "pos": 10,
       "name": "suri",
       "repo": "",
-      "kind": "Private build based on victory-fork. No public code",
+      "kind": "Приватная сборка на базе victory-fork. Публичного кода нет",
       "stage": 6,
-      "status": "PortWatch reports this build at about 3 frames a second in the first gameplay scene, with a picture it describes as close to the retail game and ahead of the other builds on the same code. Nobody outside can test it.",
-      "basis": "PortWatch, which says it confirmed a player moving around. Not the developer's own statement",
+      "status": "PortWatch сообщает, что эта сборка выдает около 3 кадров в секунду в первой игровой сцене, при этом картинка, по их описанию, близка к релизной версии и превосходит другие сборки на том же коде. Никто извне не может это протестировать.",
+      "basis": "PortWatch, который утверждает, что подтвердил перемещение игрока. Это не официальное заявление разработчика",
       "changed": "2026-11-24T22:43:00Z",
       "nolink": true,
       "private": true,
       "lanes": {
         "picture": {
           "step": 4,
-          "text": "close to the retail game"
+          "text": "близко к релизной версии"
         },
         "speed": {
           "low": 3,
           "high": 3,
-          "text": "about 3 fps"
+          "text": "около 3 fps"
         },
         "stability": {
           "minutes": null,
@@ -498,24 +498,24 @@
       "pos": 11,
       "name": "CGBJ",
       "repo": "codec-d/cool_fox",
-      "kind": "Public for a time on 26 November as a fork of VIctory-7900XTX with NVIDIA work on top; its repository no longer answers. PortWatch lists it as the build of a group it calls CGBJ",
+      "kind": "Была публично доступна некоторое время 26 ноя как форк VIctory-7900XTX с наработками NVIDIA; репозиторий больше не отвечает. PortWatch указывает её как сборку группы, которую называет CGBJ",
       "stage": 6,
-      "basis": "Its repository as this page read it at 07:34 UTC on 26 November, before it stopped answering: a development journal with its own measurements and a README that gave none. PortWatch, which says it has seen the build, relays the higher figure; one fork on the watch list reports building the published code and measuring far less on a smaller card, which nobody has verified",
-      "status": "Its repository, made public on the morning of 26 November as a fork of VIctory-7900XTX with NVIDIA work on top, stopped answering between 07:34 and 08:01 UTC: missing, private or removed, with no published takedown notice naming it; PortWatch's pinned note says it has been taken down temporarily, and the README of Vice-Tay, which builds on its code, says its author took it down. While it was public its own journal recorded medians of about 17 to 18 frames a second in the opening street of a title it does not name on an RTX 5090, with a sustained 20 listed as still open; PortWatch, which says it has seen the build, relays an average of 25 in gameplay, and HybridGt, a fork on the watch list, reports building the published code and measuring a median of 2.7 on an RTX 4070 Ti with 32 GB of memory on the smaller console's profile, a third party's test that nobody has verified.",
+      "basis": "Репозиторий в том виде, в котором он был доступен на 07:34 UTC 26 ноя, до того как перестал отвечать: журнал разработки с собственными замерами и README, где замеров не было. PortWatch, утверждающий, что видел сборку, передает более высокую цифру; один форк из списка наблюдения сообщает о компиляции опубликованного кода и замерах значительно меньших показателей на более слабой видеокарте, что никто не подтвердил.",
+      "status": "Репозиторий, ставший публичным утром 26 ноя как форк VIctory-7900XTX с наработками NVIDIA, перестал отвечать в промежутке между 07:34 и 08:01 UTC: отсутствует, стал приватным или удален, при этом официального требования об удалении с упоминанием названия не поступало; в закрепленном сообщении PortWatch говорится, что сборка удалена временно, а README от Vice-Tay, который базируется на этом коде, сообщает, что автор удалил её. Пока сборка была публичной, в её журнале фиксировалась медиана около 17–18 кадров в секунду на начальной улице в игре (название не указано) на RTX 5090, с указанием стабильных 20 кадров как открытого вопроса; PortWatch, утверждающий, что видел сборку, сообщает о среднем значении 25 кадров в игровом процессе, а HybridGt, форк из списка наблюдения, сообщает о компиляции опубликованного кода и медиане 2.7 на RTX 4070 Ti с 32 GB памяти при использовании профиля младшей консоли — это сторонний тест, который никто не подтвердил.",
       "changed": "2026-11-26T10:11:00Z",
       "lanes": {
         "picture": {
           "step": 3,
-          "text": "textured and lit in its journal, material coverage still open"
+          "text": "текстурировано и освещено в журнале, покрытие материалов всё ещё открыто"
         },
         "speed": {
           "low": 17.3,
           "high": 18.4,
-          "text": "17 to 18 fps medians in its journal; 25 relayed by PortWatch"
+          "text": "от 17 до 18 медиан fps в журнале; 25 передано PortWatch"
         },
         "stability": {
           "minutes": 2,
-          "text": "a 135-second harness run; no session of play reported"
+          "text": "135-секундный тестовый прогон; сессий игры не зафиксировано"
         }
       },
       "tested": {
@@ -526,31 +526,31 @@
           "NVIDIA"
         ]
       },
-      "lead": "CGBJ, a build whose code became public on 26 November,",
+      "lead": "CGBJ, сборка, код которой стал публичным 26 ноя,",
       "nolink": true
     },
     {
       "pos": 12,
       "name": "victory-amd",
       "repo": "myokex/victory-amd",
-      "kind": "Fork of victory-fork with fixes for AMD Radeon cards",
+      "kind": "Форк victory-fork с исправлениями для карт AMD Radeon",
       "stage": 6,
-      "basis": "Project README, tested on one machine",
-      "status": "Its README reports the opening cutscene and the first room drawn with the player moving at 2 to 3 frames a second on a Radeon RX 7800 XT, in runs of about 8 minutes that mostly end without losing the graphics device. It says walls and lamps were missing in some runs, some cutscene shots come out white and ray-traced light does not run.",
+      "basis": "Проект README, протестирован на одной машине",
+      "status": "Его README сообщает о прорисовке вступительной кат-сцены и первой комнаты при движении игрока со скоростью 2–3 кадра в секунду на Radeon RX 7800 XT, в прогонах длительностью около 8 минут, которые по большей части завершаются без сбоя графического драйвера. Указано, что в некоторых прогонах отсутствовали стены и лампы, некоторые кадры кат-сцен получаются белыми, а трассировка лучей не работает.",
       "changed": "2026-11-25T11:32:00Z",
       "lanes": {
         "picture": {
           "step": 2,
-          "text": "walls or lamps missing at times"
+          "text": "иногда отсутствуют стены или лампы"
         },
         "speed": {
           "low": 2,
           "high": 3,
-          "text": "2 to 3 fps"
+          "text": "от 2 до 3 fps"
         },
         "stability": {
           "minutes": 8,
-          "text": "8 minute runs"
+          "text": "8-минутные прогоны"
         }
       },
       "tested": {
@@ -566,24 +566,24 @@
       "pos": 13,
       "name": "VIctory",
       "repo": "marvisak/VIctory",
-      "kind": "Runs the game's Xbox code natively on Windows",
+      "kind": "Запускает Xbox-код игры нативно на Windows",
       "stage": 6,
-      "basis": "Project README, and open pull requests by contributors, each measured on one machine",
-      "status": "Its README (23:27 UTC) now says the frame rate is the only thing that keeps the game from working: the intro cutscene plays and the opening mission is reached with the graphics fully displayed at about 1 frame a second on a Radeon RX 6700 XT, lit and textured but without ray-traced shadows or indirect light. It still calls the game not playable, says its latest runs lasted several minutes each in the world, and open pull requests report 6 to 8 minutes.",
+      "basis": "Проект README и открытые пул-реквесты от участников, каждый измерен на одной машине",
+      "status": "Его README (23:27 UTC) теперь гласит, что частота кадров — единственное, что мешает игре работать: вступительная кат-сцена воспроизводится, начальная миссия достигается с полностью отображаемой графикой при частоте около 1 кадра в секунду на Radeon RX 6700 XT, с освещением и текстурами, но без теней от трассировки лучей или непрямого света. Игра по-прежнему считается неиграбельной, последние прогоны длились по несколько минут каждый, а в открытых пул-реквестах сообщается о 6–8 минутах.",
       "changed": "2026-11-25T23:48:00Z",
       "lanes": {
         "picture": {
           "step": 2,
-          "text": "lit, no ray-traced shadows or bounce light"
+          "text": "освещено, без теней от трассировки лучей или отраженного света"
         },
         "speed": {
           "low": 1,
           "high": 1,
-          "text": "about 1 fps"
+          "text": "около 1 fps"
         },
         "stability": {
           "minutes": 8,
-          "text": "6 to 8 minutes"
+          "text": "от 6 до 8 минут"
         }
       },
       "tested": {
@@ -600,25 +600,25 @@
       "pos": 14,
       "name": "Flamingo",
       "repo": "realblastex/flamingo",
-      "kind": "Fork of victory-fork tuned on one RTX 4070, published on 25 November",
+      "kind": "Форк victory-fork, оптимизированный под одну RTX 4070, опубликован 25 ноября",
       "stage": 6,
-      "basis": "Project README and its run log: the maintainer's own figures from one machine, not confirmed by anyone else",
+      "basis": "Проект README и его лог запуска: собственные данные мейнтейнера с одной машины, не подтвержденные кем-либо еще",
       "changed": "2026-11-26T02:27:00Z",
-      "lead": "Flamingo, a fork of victory-fork tuned on one RTX 4070,",
-      "status": "Its README reports the first gameplay scene of an open-world title it does not name under player control at 9 to 12 frames a second on an RTX 4070 at reduced resolution, about 14 in its lightest view and about 4 for a few seconds while turning as textures stream in, and its run log reports a 24-minute play session through the whole opening at 8.6 on average in the world. It says shadowed areas are dark, some geometry is missing in the first area and some character assets load wrong, and the figures come from one machine and are not confirmed by anyone else.",
+      "lead": "Flamingo, форк victory-fork, оптимизированный под одну RTX 4070,",
+      "status": "В README сообщается о первой геймплейной сцене неназванного тайтла в открытом мире под управлением игрока при 9–12 кадрах в секунду на RTX 4070 в пониженном разрешении, около 14 в самых легких сценах и около 4 в течение нескольких секунд при поворотах во время стриминга текстур; лог запуска сообщает о 24-минутной игровой сессии через все вступление со средним показателем 8.6 в открытом мире. Указывается, что затененные области слишком темные, в первой локации отсутствует часть геометрии, а некоторые ассеты персонажей загружаются некорректно; данные получены с одной машины и не подтверждены кем-либо еще.",
       "lanes": {
         "picture": {
           "step": 2,
-          "text": "shadows missing, rooms dark"
+          "text": "тени отсутствуют, в помещениях темно"
         },
         "speed": {
           "low": 8.6,
           "high": 8.6,
-          "text": "8.6 fps average over a 24-minute session, unconfirmed"
+          "text": "в среднем 8.6 fps за 24-минутную сессию, не подтверждено"
         },
         "stability": {
           "minutes": 24,
-          "text": "a 24 minute play session"
+          "text": "24-минутная игровая сессия"
         }
       },
       "tested": {
@@ -634,24 +634,24 @@
       "pos": 15,
       "name": "BRVIctory-ka1qux",
       "repo": "ka1qux/BRVIctory-ka1qux",
-      "kind": "Fork of victory-fork, developed and measured on an AMD Radeon card",
+      "kind": "Форк victory-fork, разработанный и протестированный на видеокарте Radeon AMD",
       "stage": 6,
-      "basis": "Project README, measured on one machine",
+      "basis": "Проект README, замеры на одной машине",
       "changed": "2026-11-26T03:19:00Z",
-      "status": "Its README (02:56 UTC) reports an open-world street of a title it does not name at a median of 3.1 to 3.3 frames a second on a Radeon RX 7800 XT, drawn from a save with the game's own ray-traced light on by default, with the cost of each draw cut by about a tenth since its last build and AMD's upscaler rendering at 1080p for a 4K picture. It reports a 25-minute play session on an earlier build, a 17-minute session in the open world, and no crash or lost device in its last 50 runs of 4 to 25 minutes.",
+      "status": "В README (02:56 UTC) сообщается об улице в открытом мире неназванного тайтла с медианой от 3.1 до 3.3 кадра в секунду на Radeon RX 7800 XT; замеры проводились на сохранении с включенным по умолчанию внутриигровым освещением с трассировкой лучей, при этом стоимость каждой отрисовки снизилась примерно на десятую часть со времени последней сборки, а апскейлинг AMD рендерит в 1080p для вывода 4K-изображения. Сообщается о 25-минутной игровой сессии на более ранней сборке, 17-минутной сессии в открытом мире и отсутствии вылетов или сбоев графического драйвера за последние 50 запусков длительностью от 4 до 25 минут.",
       "lanes": {
         "picture": {
           "step": 3,
-          "text": "ray-traced light on by default, one street checked"
+          "text": "освещение с трассировкой лучей включено по умолчанию, проверена одна улица"
         },
         "speed": {
           "low": 3.1,
           "high": 3.3,
-          "text": "3.1 to 3.3 fps median on a street, ray-traced light on"
+          "text": "медиана 3.1–3.3 fps на улице, трассировка лучей включена"
         },
         "stability": {
           "minutes": 25,
-          "text": "25 minutes, no crash in its last 50 runs"
+          "text": "25 минут, без вылетов за последние 50 запусков"
         }
       },
       "tested": {
@@ -667,20 +667,20 @@
       "pos": 16,
       "name": "DexNom RayTime",
       "repo": "DexNom/VIctory",
-      "kind": "Fork of VIctory for AMD Radeon cards, built on victory-world-runtime and published as DexNom Runtime until 26 November",
+      "kind": "Форк VIctory для видеокарт Radeon AMD, построенный на victory-world-runtime и публиковавшийся как DexNom Runtime до 26 ноября",
       "stage": 6,
-      "basis": "Project test report, measured on one machine, and PortWatch, which reports having seen the build running",
+      "basis": "Отчет о тестировании проекта, замеры на одной машине, и PortWatch, сообщающий, что видел сборку в работе",
       "changed": "2026-11-26T00:54:00Z",
-      "status": "Its README (00:48 UTC) renames it DexNom RayTime and calls this its most complete tested build, with a profile that renders at 1440p with ray tracing on and upscales to 4K on a Radeon RX 7900 XTX; its test report, unchanged since 25 November, gives 3.5 to 4 frames a second indoors in the city of a title it does not name and about 1 with the experimental ray tracing, with no session length stated. PortWatch, which reports having seen the build running with ray-traced lighting working, says the open world looks close to the retail game, with missions played at about 3 to 4 frames a second.",
+      "status": "В README (00:48 UTC) проект переименован в DexNom RayTime и назван наиболее полной протестированной сборкой с профилем, который рендерит в 1440p с включенной трассировкой лучей и апскейлингом до 4K на Radeon RX 7900 XTX; в отчете о тестировании, не менявшемся с 25 ноября, указано от 3.5 до 4 кадров в секунду в помещениях города неназванного тайтла и около 1 с экспериментальной трассировкой лучей, длительность сессии не указана. PortWatch, сообщающий, что видел сборку в работе с функционирующим освещением на базе трассировки лучей, утверждает, что открытый мир выглядит близко к релизной версии игры, а миссии проходятся примерно при 3–4 кадрах в секунду.",
       "lanes": {
         "picture": {
           "step": 3,
-          "text": "lit; ray tracing runs as an experiment"
+          "text": "освещено; трассировка лучей работает в экспериментальном режиме"
         },
         "speed": {
           "low": 1,
           "high": 4,
-          "text": "1 fps with ray tracing, 3.5 to 4 without"
+          "text": "1 fps с трассировкой лучей, от 3.5 до 4 без неё"
         },
         "stability": {
           "minutes": null,
@@ -700,24 +700,24 @@
       "pos": 17,
       "name": "vilocity",
       "repo": "voidopcode/vilocity",
-      "kind": "Xbox Series compatibility layer for Windows, published on 25 November",
+      "kind": "Слой совместимости Xbox Series для Windows, опубликован 25 ноября",
       "stage": 6,
-      "basis": "Project README, tested on one machine",
+      "basis": "Проект README, протестирован на одной машине",
       "changed": "2026-11-26T08:33:00Z",
-      "status": "Its README's latest test run (08:22 UTC) shows a median frame of 72 milliseconds, about 14 frames a second, on an RTX 5080 on the smaller console's profile, its default, after a fix to a lighting program that ran wrongly on NVIDIA cards, against about 11.5 at 02:01 UTC; its status table still gives about 11 on that profile and 4 to 8 for the first room. It says rooms are lit, some draws are still dropped, a driver timeout still ends runs about 7 minutes in, and it is not playable yet.",
+      "status": "Последний тестовый прогон README (08:22 UTC) показывает медианное время кадра 72 миллисекунды, около 14 кадров в секунду, на RTX 5080 с использованием профиля младшей консоли (по умолчанию) после исправления программы освещения, которая некорректно работала на картах NVIDIA, против примерно 11.5 кадров в 02:01 UTC; в таблице статуса по-прежнему указано около 11 кадров для этого профиля и от 4 до 8 для первой комнаты. Указано, что комнаты освещены, часть отрисовки всё ещё пропускается, сбой графического драйвера завершает сессию примерно через 7 минут, и проект пока не является играбельным.",
       "lanes": {
         "picture": {
           "step": 3,
-          "text": "lit, stand-in light, fewer passes on the smaller profile"
+          "text": "освещено, временное освещение, меньше проходов на профиле младшей консоли"
         },
         "speed": {
           "low": 4,
           "high": 13.9,
-          "text": "11 to 14 fps on the smaller profile, 4 to 8 in its first-room row"
+          "text": "от 11 до 14 fps на профиле младшей консоли, от 4 до 8 в строке первой комнаты"
         },
         "stability": {
           "minutes": 7,
-          "text": "about 7 minutes"
+          "text": "около 7 минут"
         }
       },
       "tested": {
@@ -732,25 +732,25 @@
     {
       "name": "CBL VIctory",
       "repo": "cocainebunnylaboratories/cblvictoryvi",
-      "kind": "Fork of VIctory with victory-fork's renderer and fixes from other forks",
+      "kind": "Форк VIctory с рендерером victory-fork и исправлениями из других форков",
       "stage": 6,
       "pos": 18,
       "changed": "2026-11-25T16:07:00Z",
-      "status": "Its results page reports a run of 27 minutes 38 seconds on an RTX 5080, from a save in the opening of a title it does not name through to a boat sequence under player control, closed by hand, with measured stretches averaging 3.6 to 6.4 frames a second at 4K output. It says an earlier run crashed after 20 minutes, the boat did not move so its objective failed, and deep shadows and distorted surfaces hide parts of the outdoor scene.",
-      "basis": "Project results page and README on its test branch: the maintainer's own figures from one machine, not confirmed by anyone else",
+      "status": "На странице результатов сообщается о сессии продолжительностью 27 минут 38 секунд на RTX 5080, от загрузки сохранения в начале неназванного тайтла до сцены с лодкой под управлением игрока, закрытой вручную, с измеренными отрезками со средней частотой от 3.6 до 6.4 кадра в секунду при выводе в 4K. Указано, что предыдущий запуск завершился вылетом через 20 минут, лодка не двигалась, поэтому цель не была достигнута, а глубокие тени и искаженные поверхности скрывают части сцены на открытом воздухе.",
+      "basis": "Страница результатов проекта и README в тестовой ветке: собственные показатели мейнтейнера с одной машины, никем другим не подтвержденные",
       "lanes": {
         "picture": {
           "step": 2,
-          "text": "deep shadows, some surfaces distorted"
+          "text": "глубокие тени, некоторые поверхности искажены"
         },
         "speed": {
           "low": 3.63,
           "high": 6.39,
-          "text": "3.6 to 6.4 fps by scene"
+          "text": "от 3.6 до 6.4 fps в зависимости от сцены"
         },
         "stability": {
           "minutes": 27,
-          "text": "27 minutes, closed by hand"
+          "text": "27 минут, закрыто вручную"
         }
       },
       "tested": {
@@ -767,21 +767,21 @@
       "repo": "",
       "private": true,
       "nolink": true,
-      "kind": "Private build based on victory-amd. No public code",
+      "kind": "Приватная сборка на базе victory-amd. Публичного кода нет",
       "stage": 6,
       "pos": 19,
       "changed": "2026-11-25T16:07:00Z",
-      "status": "PortWatch says it verified this private group's build running with ray-traced lighting at about 3 to 5 frames a second, almost never crashing and reaching as far into the story as the leading public builds, with a picture slightly behind DexNom RayTime's. It is built mostly for AMD cards and runs slower on NVIDIA, and nobody outside can test it.",
-      "basis": "PortWatch, which says it verified the build. Not the group's own statement",
+      "status": "PortWatch заявляет, что проверил сборку этой закрытой группы: она работает с трассировкой лучей при 3–5 кадрах в секунду, почти не вылетает и позволяет пройти по сюжету так же далеко, как и ведущие публичные сборки, при этом картинка немного уступает DexNom RayTime. Сборка оптимизирована преимущественно под карты AMD и работает медленнее на NVIDIA, сторонним лицам доступ к тестированию закрыт.",
+      "basis": "PortWatch, который подтвердил работоспособность сборки. Не является официальным заявлением группы",
       "lanes": {
         "picture": {
           "step": 4,
-          "text": "ray-traced lighting, relayed"
+          "text": "трассировка лучей, передано"
         },
         "speed": {
           "low": 3,
           "high": 5,
-          "text": "about 3 to 5 fps, relayed"
+          "text": "около 3–5 fps, передано"
         },
         "stability": {
           "minutes": null,
@@ -799,25 +799,25 @@
     {
       "name": "Kelvaroq",
       "repo": "fablinoo/kelvaroq",
-      "kind": "Xbox Series runtime for Windows built on VIctory and victory-fork, published on 25 November",
+      "kind": "Среда выполнения Xbox для Windows, собранная на VIctory и victory-fork, опубликована 25 ноября",
       "stage": 6,
       "pos": 20,
       "changed": "2026-11-26T01:15:00Z",
-      "status": "Its README (20:53 UTC on 25 November) records a session it calls an external playtest, by a tester it does not name: 36 minutes 46 seconds without a crash on an RTX 4090 at 1440p, through the opening mission and the next of a title it does not name, at 10 frames a second on average and about 11 once the first ten minutes of loading were over, alongside its own measurements of about 10 rendered frames a second in typical views and 7 to 8 in its heaviest scenes at 4K output on an RTX 5080. It says about 7 percent of draws are dropped and that the tester's figures come from one session, and since 00:55 UTC on 26 November that a new memory layer, still in testing, cut the memory copied each frame from over 100 MB to under 8 MB in its first scenes, with no frame rate given and no release until it is validated across the whole game; nobody else has confirmed any of it.",
-      "basis": "Project README and its measurement notes: its own figures from one machine, and one session on another that the README attributes to an unnamed external tester; not confirmed by anyone else",
+      "status": "Его README (20:53 UTC 25 ноября) фиксирует сессию, которую он называет внешним плейтестом от неназванного тестера: 36 минут 46 секунд без вылетов на RTX 4090 в разрешении 1440p. Пройдена вступительная миссия и следующая за ней в игре, название которой не упоминается; средняя частота — 10 кадров в секунду, около 11 кадров после завершения первых десяти минут загрузки. Также приведены собственные замеры: около 10 отрисованных кадров в секунду в типичных сценах и 7–8 в самых тяжелых при выводе в 4K на RTX 5080. Утверждается, что около 7 процентов кадров пропускается, а данные тестера получены за одну сессию. С 00:55 UTC 26 ноября новый слой памяти, находящийся в стадии тестирования, сократил объем копируемых данных за кадр с более чем 100 МБ до менее чем 8 МБ в начальных сценах; частота кадров не указана, релиз не планируется до полной проверки во всей игре; никто другой эти данные не подтвердил.",
+      "basis": "Проект README и заметки по его замерам: собственные показатели с одной машины и одна сессия на другой, которую README приписывает неназванному внешнему тестеру; никем другим не подтверждено",
       "lanes": {
         "picture": {
           "step": 3,
-          "text": "whole in its captures, 7% of draws dropped"
+          "text": "пропуски в захвате, 7% пропущенных кадров"
         },
         "speed": {
           "low": 10,
           "high": 10,
-          "text": "10 fps average, an unnamed tester's 36 minutes"
+          "text": "10 fps в среднем, 36 минут от неназванного тестера"
         },
         "stability": {
           "minutes": 36,
-          "text": "36 minutes, an unnamed tester's session"
+          "text": "36 минут, сессия неназванного тестера"
         }
       },
       "tested": {
@@ -828,30 +828,30 @@
           "NVIDIA"
         ]
       },
-      "lead": "Kelvaroq, a runtime built on VIctory and victory-fork and tested on NVIDIA cards,"
+      "lead": "Kelvaroq, среда выполнения, собранная на VIctory и victory-fork и протестированная на картах NVIDIA,"
     },
     {
       "name": "victory-unified",
       "repo": "Itsbatt/victory-unified",
-      "kind": "Fork of VIctory that combines the work of victory-fork, Belobug's fork, DexNom RayTime and ztrx",
+      "kind": "Форк VIctory, объединяющий наработки victory-fork, форка Belobug, DexNom RayTime и ztrx",
       "stage": 6,
       "pos": 21,
       "changed": "2026-11-25T20:40:00Z",
-      "status": "Its README (20:38 UTC) reports a title it does not name played on an RTX 3070 with 8 GB for about 58 minutes in one session without a crash, from the opening into a later mission outdoors, at 2 to 3 frames a second, after a fix for the graphics-device failure that ended two earlier sessions at about 49 minutes. It uses a constant stand-in for ray-traced light built on Belobug's fork, now with a sky-to-ground tint that it says keeps outdoor shadows readable.",
-      "basis": "Project README, tested on one machine: its own figures, not confirmed by anyone else",
+      "status": "Его README (20:38 UTC) сообщает об игре (название не указано), запущенной на RTX 3070 с 8 ГБ памяти. Сессия длилась около 58 минут без вылетов, от вступления до более поздней миссии на открытом воздухе, при 2–3 кадрах в секунду после исправления сбоя графического драйвера, который прервал две предыдущие сессии на 49-й минуте. Используется постоянная заглушка для трассировки лучей, основанная на форке Belobug, теперь с цветовым тоном «небо-земля», который, по словам автора, сохраняет читаемость теней на открытом воздухе.",
+      "basis": "Проект README, протестирован на одной машине: собственные показатели, никем другим не подтверждены",
       "lanes": {
         "picture": {
           "step": 3,
-          "text": "shade lit by a stand-in light"
+          "text": "тень, освещенная заглушкой"
         },
         "speed": {
           "low": 2,
           "high": 3,
-          "text": "2 to 3 fps"
+          "text": "от 2 до 3 fps"
         },
         "stability": {
           "minutes": 58,
-          "text": "about 58 minutes, no crash"
+          "text": "около 58 минут, без вылетов"
         }
       },
       "tested": {
@@ -869,7 +869,7 @@
       "repo": "KomanderDG88/VIniVIdiVIci",
       "kind": "Fork of victory-fork aimed at NVIDIA cards",
       "stage": 6,
-      "basis": "Project README, measured on one machine",
+      "basis": "Проект README, замеры на одной машине",
       "changed": "2026-11-26T06:03:00Z",
       "status": "Its README (05:52 UTC) reports the player in control of a title it does not name on an RTX 4060 Ti at a median of 6.5 frames a second in the first room, measured over a scripted 280-second walk with ten switches on that are off by default, against 6.0 without them, and says a figure of 7.3 with one more switch is not the one to go by, because a fault was then found in that switch; its longest session is 46 minutes without a crash, on an earlier build at 3.75 overall. It corrects its earlier figures, which were measured with a diagnostic switch on that slowed them, and says the picture is very dark with wrong textures and black shadows and that it is not playable.",
       "tested": {
@@ -1257,7 +1257,7 @@
       "repo": "OpenCommunityEdition/OpenScarlett",
       "kind": "Compatibility layer for Xbox Series games, separate from the other OpenScarlett",
       "stage": 5,
-      "basis": "Project README, tested on one machine",
+      "basis": "Проект README, протестирован на одной машине",
       "status": "Runs a newer retail game it does not name through its first-boot settings and legal screens, start screen and 4K intro video with sound, at a steady 30 frames a second. It stops while the scene behind the menus streams in.",
       "changed": "2026-11-24T06:54:00Z",
       "tested": {
@@ -1333,7 +1333,7 @@
       "repo": "Steinkoloss/port-of-the-americas",
       "kind": "Compatibility layer for Linux (Proton), for GTA VI only",
       "stage": 5,
-      "basis": "Project README, tested on one machine",
+      "basis": "Проект README, протестирован на одной машине",
       "status": "Its README reports the press-start screen, the first-time setup pages and loading-screen artwork drawing on Linux under Proton on a Radeon RX 9070 XT, with a button press starting the boot flow. It says the world load runs without a crash but the world draws black.",
       "changed": "2026-11-25T10:59:00Z",
       "tested": {
