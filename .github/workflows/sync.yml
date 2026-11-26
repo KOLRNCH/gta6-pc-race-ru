@@ -5,6 +5,10 @@ on:
     - cron: "*/20 * * * *"
   workflow_dispatch:
 
+concurrency:
+  group: sync-translate-main
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -40,4 +44,5 @@ jobs:
             exit 0
           fi
           git commit -m "Auto-sync & translate upstream update"
+          git pull --rebase origin main || (git rebase --abort && git pull --rebase -X ours origin main)
           git push
