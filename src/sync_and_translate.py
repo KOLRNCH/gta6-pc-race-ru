@@ -94,11 +94,10 @@ SEED_TRANSLATIONS = {
 }
 
 DEFAULT_MODELS = (
-    "gemini-2.5-flash",
     "gemini-2.5-flash-lite",
-    "gemini-3-flash-preview",
-    "gemini-3.1-flash-lite-preview",
     "gemini-2.0-flash",
+    "gemini-2.5-flash",
+    "gemini-3.1-flash-lite-preview",
 )
 
 UNSUPPORTED_MODEL_TOKENS = ("tts", "image", "audio", "live", "robotics", "embedding", "computer-use")
@@ -209,18 +208,21 @@ def discover_flash_models(api_key: str, preferred: tuple[str, ...] = DEFAULT_MOD
         if live:
             ordered = [m for m in preferred if m in live]
             rest = [m for m in sorted(live, reverse=True) if m not in ordered]
-            return tuple(ordered + rest)
-    except Exception:
-        pass
-    return preferred
+            chosen = tuple((ordered + rest)[:3])
+            print(f"Discovered Gemini models: {chosen}", flush=True)
+            return chosen
+    except Exception as exc:
+        print(f"Model discovery failed ({exc}), using defaults", flush=True)
+    return preferred[:3]
 
 
-def call_gemini_batch(
-    masked_texts: list[str],
-    api_key: str,
-    models: tuple[str, ...] = DEFAULT_MODELS,
-) -> list[str]:
-    """Translate a list of masked strings using Google Gemini REST API with retries & model fallback."""
+def _build_payload(masked_texts: list[str], model: str, disable_thinking: bool) -> bytes:
+    gen_cfg: dict[str, Any] = {
+        "temperature": 0.15,
+        "responseMimeType": "application/json",
+    }
+    if disable_thinking and "2.5" in model:
+        gen_cfg["thinkingConfig"] = {"thinkingBudget": 0}
     payload = {
         "systemInstruction": {"parts": [{"text": SYSTEM_PROMPT}]},
         "contents": [
@@ -229,17 +231,23 @@ def call_gemini_batch(
                 "parts": [{"text": json.dumps({"strings": masked_texts}, ensure_ascii=False)}],
             }
         ],
-        "generationConfig": {
-            "temperature": 0.15,
-            "responseMimeType": "application/json",
-        },
+        "generationConfig": gen_cfg,
     }
-    raw_body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+    return json.dumps(payload, ensure_ascii=False).encode("utf-8")
 
+
+def call_gemini_batch(
+    masked_texts: list[str],
+    api_key: str,
+    models: tuple[str, ...] = DEFAULT_MODELS,
+) -> list[str]:
+    """Translate a list of masked strings using Google Gemini REST API with retries & model fallback."""
     last_err: Exception | None = None
-    for model in models:
+    for model in models[:3]:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-        for attempt in range(3):
+        use_no_think = "2.5" in model
+        for attempt in range(2):
+            raw_body = _build_payload(masked_texts, model, disable_thinking=use_no_think)
             req = urllib.request.Request(
                 url,
                 data=raw_body,
@@ -247,35 +255,38 @@ def call_gemini_batch(
                 method="POST",
             )
             try:
-                with urllib.request.urlopen(req, timeout=60) as resp:
+                with urllib.request.urlopen(req, timeout=30) as resp:
                     body = json.loads(resp.read().decode("utf-8"))
                 text_out = body["candidates"][0]["content"]["parts"][0]["text"]
                 parsed = json.loads(text_out)
                 items = parsed.get("translations")
                 if isinstance(items, list) and len(items) == len(masked_texts):
-                    print(f"Translated batch ({len(masked_texts)} items) via {model}")
+                    print(f"Translated batch ({len(masked_texts)} items) via {model}", flush=True)
                     return [str(x) for x in items]
                 raise ValueError(f"Unexpected Gemini JSON shape from {model}")
             except urllib.error.HTTPError as exc:
                 last_err = exc
                 if exc.code in (401, 403):
                     raise
+                if exc.code == 400 and use_no_think:
+                    use_no_think = False
+                    continue
                 if exc.code in (429, 500, 502, 503, 504):
-                    if attempt < 2:
-                        time.sleep(3 * (attempt + 1))
+                    if attempt == 0:
+                        time.sleep(2)
                         continue
-                    print(f"Model {model} returned HTTP {exc.code}, trying next model...")
+                    print(f"Model {model} returned HTTP {exc.code}, trying next model...", flush=True)
                     break
                 if exc.code in (400, 404):
-                    print(f"Model {model} unavailable (HTTP {exc.code}), trying next model...")
+                    print(f"Model {model} unavailable (HTTP {exc.code}), trying next model...", flush=True)
                     break
                 raise
             except Exception as exc:
                 last_err = exc
-                if attempt < 2:
-                    time.sleep(2)
+                if attempt == 0:
+                    time.sleep(1.5)
                     continue
-                print(f"Model {model} failed ({exc}), trying next model...")
+                print(f"Model {model} failed ({exc}), trying next model...", flush=True)
                 break
 
     raise RuntimeError(f"Gemini translation failed across models {models}: {last_err}")
@@ -354,8 +365,8 @@ def translate_dataset(
     cache: dict[str, str],
     api_key: str | None,
     *,
-    max_requests: int = 12,
-    batch_char_limit: int = 12000,
+    max_requests: int = 8,
+    batch_char_limit: int = 4500,
     models: tuple[str, ...] = DEFAULT_MODELS,
 ) -> tuple[dict[str, Any], dict[str, str], int]:
     """Translate `data` incrementally using `cache` and Gemini API; return `(ru_data, cache, api_calls)`."""
@@ -383,7 +394,7 @@ def translate_dataset(
             chars = 0
             while idx < len(pending_items):
                 digest, (src, masked, mapping) = pending_items[idx]
-                if batch and (chars + len(masked) > batch_char_limit or len(batch) >= 35):
+                if batch and (chars + len(masked) > batch_char_limit or len(batch) >= 15):
                     break
                 batch.append((digest, src, masked, mapping))
                 chars += len(masked)
@@ -391,12 +402,13 @@ def translate_dataset(
 
             try:
                 translated_batch = call_gemini_batch([b[2] for b in batch], api_key=api_key, models=models)
-            except urllib.error.HTTPError:
-                raise
-            except Exception as exc:
-                if api_calls == 0:
+            except urllib.error.HTTPError as exc:
+                if exc.code in (401, 403):
                     raise
-                print(f"Stopping remaining batches after {api_calls} calls due to transient error: {exc}")
+                print(f"Stopping remaining batches after {api_calls} calls ({exc})", flush=True)
+                break
+            except Exception as exc:
+                print(f"Stopping remaining batches after {api_calls} calls due to transient error: {exc}", flush=True)
                 break
 
             api_calls += 1
