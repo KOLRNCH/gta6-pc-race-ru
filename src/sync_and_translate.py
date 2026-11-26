@@ -324,7 +324,17 @@ def extract_translatable_slots(data: dict[str, Any]) -> list[tuple[list[str | in
         if item:
             slots.append((["forecast", "basis", idx], str(item)))
 
-    for idx, p in enumerate(data.get("projects") or []):
+    def _project_priority(item: tuple[int, dict[str, Any]]) -> tuple[int, int]:
+        idx, p = item
+        lanes = p.get("lanes") or {}
+        lane_sum = sum(
+            int((lanes.get(k) or {}).get("score") or 0)
+            for k in ("picture", "speed", "stability")
+            if isinstance(lanes.get(k), dict)
+        )
+        return (-int(p.get("stage") or 0), -lane_sum)
+
+    for idx, p in sorted(enumerate(data.get("projects") or []), key=_project_priority):
         for key in ("kind", "basis", "status", "lead"):
             if p.get(key):
                 slots.append((["projects", idx, key], str(p[key])))
@@ -426,8 +436,8 @@ def translate_dataset(
                 if _all_tokens_preserved(tr_masked, mapping):
                     cache[digest] = unmask_protected_terms(tr_masked, mapping)
                 else:
-                    # Fallback safely without corrupting team names
-                    cache[digest] = src
+                    # Leave uncached so the next run can retry without locking untranslated text
+                    print(f"Token mismatch in batch item, will retry later", flush=True)
 
             if idx < len(pending_items) and api_calls < max_requests:
                 time.sleep(1.5)

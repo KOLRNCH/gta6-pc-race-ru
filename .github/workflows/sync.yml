@@ -29,7 +29,7 @@ jobs:
           PYTHONUNBUFFERED: "1"
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
-        run: python src/sync_and_translate.py --max-requests 8
+        run: python src/sync_and_translate.py --max-requests 15
 
       - name: Rebuild index.html
         run: python src/build.py src/data_ru.json index.html
