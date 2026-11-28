@@ -2392,372 +2392,372 @@ section > .wrap > h2 { margin-bottom: var(--head-gap); }
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T17:33:00Z" data-t="log" data-pre="">17:33</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">AnyXboxX measures 3.2 frames a second and narrows down the black picture</h3>
-            <ul class="points measure"><li>AnyXboxX&#x27;s notes for the evening of 24 November give about 3.2&nbsp;frames a second in the world when the game runs in its Series S mode, which renders at 1280x720, against 2.0 to 2.4 in Series X mode. Both are on its local branch, on an RTX 4070 SUPER.</li><li>The same notes say the world&#x27;s geometry and the cutscene&#x27;s characters are present in internal buffers, while the final picture is one flat tint that darkens over time, with subtitles on top.</li><li>The cause it gives: about 379 draw calls start with empty arguments, because the graphics passes that fill them in are not translated yet.</li><li>five-star-recomp has named the pass that writes over game memory during its story load, an instance-culling pass. Its notes say the fault is not fixed yet.</li></ul>
+            <h3 class="t-card">AnyXboxX выдает 3,2 кадра в секунду и сужает область черного экрана</h3>
+            <ul class="points measure"><li>В заметках AnyXboxX за вечер 24 ноября указано около 3,2&nbsp;кадра в секунду в игровом мире при запуске в режиме Series S (рендеринг 1280x720) против 2,0–2,4&nbsp;кадров в режиме Series X. Оба теста проводились в локальной ветке на RTX 4070 SUPER.</li><li>В тех же заметках говорится, что геометрия мира и персонажи кат-сцен присутствуют во внутренних буферах, однако итоговое изображение представляет собой плоский цветовой фильтр, который со временем темнеет, с наложенными поверх субтитрами.</li><li>Указанная причина: около 379 вызовов отрисовки начинаются с пустыми аргументами, так как графические проходы, которые должны их заполнять, еще не транслированы.</li><li>five-star-recomp назвал проход, который перезаписывает память игры во время загрузки сюжета, проходом отсечения экземпляров (instance-culling pass). В заметках сказано, что ошибка еще не исправлена.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T17:14:00Z" data-t="log" data-pre="">17:14</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">A VIctory pull request holds the world for six minutes on an NVIDIA card</h3>
-            <ul class="points measure"><li>An open VIctory pull request reports more than 6&nbsp;minutes in game without a crash on an NVIDIA RTX 4080 Super, with the settings menu opening. Before it, the same card lost its graphics device within 10&nbsp;seconds of entering the world.</li><li>The change marks the game&#x27;s 64-lane shaders so that a card with 32 lanes refuses them cleanly, where before they ran, looped forever and hung the card. The pull request does not say what the picture shows.</li><li>Another open pull request stops graphics memory filling up on Linux, which had ended runs after a few minutes in the world. Use fell from 15&nbsp;GB to about 4.6&nbsp;GB.</li><li>Late addition: PortWatch reported early on 24 November that XCL told it the game runs at 30&nbsp;frames a second in game, without saying whether that means menus or gameplay. XCL&#x27;s README still says gameplay is not reached, and PortWatch has not moved XCL up.</li></ul>
+            <h3 class="t-card">Пул-реквест VIctory позволяет удерживать мир в течение шести минут на видеокарте NVIDIA</h3>
+            <ul class="points measure"><li>Открытый пул-реквест VIctory сообщает о более чем 6 минутах игры без вылетов на NVIDIA RTX 4080 Super с возможностью открытия меню настроек. До этого та же карта выдавала сбой графического драйвера в течение 10&nbsp;секунд после входа в мир.</li><li>Изменение помечает 64-поточные шейдеры игры так, что карта с 32 потоками корректно их отклоняет, тогда как раньше они запускались, уходили в бесконечный цикл и вешали видеокарту. В пул-реквесте не уточняется, что именно отображается на экране.</li><li>Еще один открытый пул-реквест предотвращает переполнение видеопамяти в Linux, из-за чего сессии прерывались через несколько минут игры. Потребление упало с 15&nbsp;ГБ до примерно 4,6&nbsp;ГБ.</li><li>Дополнение: PortWatch сообщил рано утром 24 ноября, что XCL передал ему информацию о 30 кадрах в секунду в игре, не уточнив, касается ли это меню или игрового процесса. README в XCL по-прежнему указывает, что игровой процесс не достигнут, а PortWatch не сдвинул XCL вверх.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T16:32:00Z" data-t="log" data-pre="">16:32</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Palmwave narrows its claim</h3>
-            <ul class="points measure"><li>Palmwave&#x27;s rewritten status says only part of the world&#x27;s geometry is drawn: poles, power lines, fences and bike racks, with about 91% of the depth buffer still empty. The entry here at <time datetime="2026-11-24T15:51:00Z" data-t="clock-bare">15:51</time> said the street was drawn.</li><li>Its world frames now take about 10&nbsp;seconds, lighting shows in about 1.5% of its target, and it has not tested controls in the world.</li><li>AnyXboxX&#x27;s author has sent the change behind its tenfold speed gain to VIctory as a pull request.</li></ul>
+            <h3 class="t-card">Palmwave уточняет свое заявление</h3>
+            <ul class="points measure"><li>В обновленном статусе Palmwave говорится, что отрисовывается лишь часть геометрии мира: столбы, линии электропередач, заборы и велопарковки, при этом около 91% буфера глубины остается пустым. Запись от <time datetime="2026-11-24T15:51:00Z" data-t="clock-bare">15:51</time> утверждала, что улица была отрисована.</li><li>Теперь отрисовка кадров мира занимает около 10&nbsp;секунд, освещение отображается примерно на 1,5% от целевого значения, а управление в мире еще не тестировалось.</li><li>Автор AnyXboxX отправил изменения, обеспечившие десятикратный прирост скорости, в VIctory в виде пул-реквеста.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T16:13:00Z" data-t="log" data-pre="">16:13</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">five-star-recomp gets past the game&#x27;s hang check</h3>
-            <ul class="points measure"><li>five-star-recomp says the game&#x27;s 30-second hang check no longer ends its story load, and a memory blow-up from the graphics driver&#x27;s shader compiler is contained. Runs now stop about 130&nbsp;seconds in, when graphics work corrupts game memory again.</li><li>XCL&#x27;s main branch is taking merges again after two quiet hours. Its status line has not changed.</li><li>VGC and Eurogamer now cover Leonida&#x27;s shutdown. Rockstar and Take-Two have still said nothing, and no takedown notice names a GTA VI project.</li></ul>
+            <h3 class="t-card">five-star-recomp проходит проверку на зависание игры</h3>
+            <ul class="points measure"><li>five-star-recomp сообщает, что 30-секундная проверка зависания игры больше не прерывает загрузку сюжета, а переполнение памяти из-за компилятора шейдеров графического драйвера локализовано. Теперь работа прекращается примерно через 130&nbsp;секунд, когда графические операции снова повреждают память игры.</li><li>Основная ветка XCL снова принимает слияния после двух часов затишья. Статус-строка проекта не изменилась.</li><li>VGC и Eurogamer теперь освещают закрытие Leonida. Rockstar и Take-Two всё ещё хранят молчание, и ни одно требование об удалении не упоминает проект GTA VI.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T15:51:00Z" data-t="log" data-pre="">15:51</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">AnyXboxX reports a controllable character; Palmwave draws the world&#x27;s geometry</h3>
-            <ul class="points measure"><li>AnyXboxX says a local branch reaches the world with a controllable character. The game&#x27;s movement tutorial shows over a 3D image that is still black.</li><li>That branch runs at about 2.4&nbsp;frames a second on an RTX 4070 SUPER, up from 0.2 this morning, after it removed several per-frame costs. About 170 shaders are still untranslated in game, down from 456.</li><li>Palmwave now draws the first mission&#x27;s street into its internal buffers and stays in the world for 3&nbsp;minutes. Its screen is still one flat colour, because the lighting passes run out of order, and a frame takes 12 to 19&nbsp;seconds.</li><li>AnyXboxX moves to stage 6. Three builds now report the game world under control or on screen: one private, one in an open pull request, and this one.</li></ul>
+            <h3 class="t-card">AnyXboxX сообщает об управляемом персонаже; Palmwave отрисовывает геометрию мира.</h3>
+            <ul class="points measure"><li>AnyXboxX сообщает, что локальная ветка позволяет попасть в мир с управляемым персонажем. Обучение движению в игре отображается поверх 3D-изображения, которое всё ещё остается черным.</li><li>Эта ветка работает со скоростью около 2,4&nbsp;кадра в секунду на RTX 4070 SUPER, что выше утренних 0,2, после удаления нескольких затратных операций на каждый кадр. Около 170 шейдеров в игре всё еще не транслированы, по сравнению с 456 ранее.</li><li>Palmwave теперь отрисовывает улицу из первой миссии во внутренние буферы и остается в мире в течение 3&nbsp;минут. Экран всё еще залит одним цветом, так как проходы освещения выполняются в неверном порядке, а отрисовка кадра занимает от 12 до 19&nbsp;секунд.</li><li>AnyXboxX переходит на 6-ю стадию. Три сборки теперь сообщают о том, что игровой мир под контролем или отображается на экране: одна приватная, одна в открытом пул-реквесте и эта.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T15:08:00Z" data-t="log" data-pre="">15:08</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">A lit, textured scene on a Mac; public code reports a player walking</h3>
-            <ul class="points measure"><li>A Reddit post shows a VIctory build running under CrossOver on an M5 Max Mac: bare grey geometry at 4&nbsp;frames a second, then about six hours later a textured, sunlit prison yard with characters. Its author says matching the console&#x27;s picture is proving hard.</li><li>An open VIctory pull request reports a similar view from public code. Under Proton on Linux the world ran 8&nbsp;minutes without a graphics fault, its geometry showed through a debug view, and a player could walk the first mission&#x27;s street.</li><li>VIctory moves to stage 6 on that report. Its own README has not changed and still calls the scene dark.</li><li>The estimate moves in by half a day, to about the morning of Sat 28 Nov.</li></ul>
+            <h3 class="t-card">Освещенная текстурированная сцена на Mac; публичный код сообщает о ходьбе игрока.</h3>
+            <ul class="points measure"><li>Пост Reddit демонстрирует сборку VIctory, запущенную через CrossOver на Mac с чипом M5 Max: голая серая геометрия при 4 кадрах в секунду, а примерно через шесть часов — текстурированный, освещенный солнцем тюремный двор с персонажами. Автор говорит, что добиться картинки как на консоли оказывается сложно.</li><li>Открытый пул-реквест VIctory сообщает о похожем виде из публичного кода. Под Proton на Linux мир проработал 8&nbsp;минут без графических сбоев, геометрия отображалась через режим отладки, а игрок мог пройтись по улице первой миссии.</li><li>VIctory переходит на 6-ю стадию согласно этому отчету. Его собственный README не изменился и по-прежнему называет сцену темной.</li><li>Оценка сдвинулась на полдня вперед, примерно на утро субботы 28 ноя.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T14:14:00Z" data-t="log" data-pre="">14:14</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">five-star-recomp clears its memory fault; press reports more chat servers gone</h3>
-            <ul class="points measure"><li>five-star-recomp says the memory corruption and graphics hangs in its story load are fixed. The game now ends itself late in the load, most likely through its own hang check while shaders are still compiling.</li><li>VGTimes reports that the VIctory team&#x27;s Discord server was blocked, without saying by whom, and that XCL&#x27;s team deleted its own group chat. Rockstar has not commented.</li><li>VIctory&#x27;s public repository has had no commit since <time datetime="2026-11-24T09:53:00Z" data-t="clock">09:53&nbsp;UTC</time>, while the private build based on it moves ahead.</li></ul>
+            <h3 class="t-card">five-star-recomp устраняет ошибку памяти; пресса сообщает об отключении еще нескольких чат-серверов.</h3>
+            <ul class="points measure"><li>five-star-recomp сообщает, что повреждение памяти и графические зависания при загрузке сюжета исправлены. Теперь игра завершается сама в конце загрузки, скорее всего, из-за собственной проверки зависания, пока всё еще идет компиляция шейдеров.</li><li>VGTimes сообщает, что сервер Discord команды VIctory был заблокирован (кем именно — не уточняется), а команда XCL удалила свой групповой чат. Rockstar ситуацию не комментирует.</li><li>В публичном репозитории VIctory не было коммитов с <time datetime="2026-11-24T09:53:00Z" data-t="clock">09:53&nbsp;UTC</time>, в то время как закрытая сборка на его основе продолжает развиваться.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T13:31:00Z" data-t="log" data-pre="">13:31</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Three more projects on the watch list</h3>
-            <ul class="points measure"><li>Two continuations of Leonida are active. One keeps its full history and says the game does not boot yet. The other, palmetto, reports the game reaching its own render code on an RTX 4090 with no frame.</li><li>g6shim, a new set of replacement system libraries, reports the game starting and stopping where graphics begin.</li><li>Nothing changed at the front in the last 20&nbsp;minutes.</li></ul>
+            <h3 class="t-card">Еще три проекта в списке наблюдения</h3>
+            <ul class="points measure"><li>Активны два продолжения Leonida. Одно из них сохраняет всю историю и сообщает, что игра пока не запускается. Другое, palmetto, сообщает, что игра доходит до собственного кода рендеринга на RTX 4090, но кадры отсутствуют.</li><li>g6shim, новый набор заменяющих системных библиотек, сообщает, что игра запускается и останавливается на этапе инициализации графики.</li><li>За последние 20&nbsp;минут на фронте без изменений.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T13:10:00Z" data-t="log" data-pre="">13:10</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">A private build is in the game world with a player moving</h3>
-            <ul class="points measure"><li>PortWatch reports that CGBJ, a private group building on VIctory with some of XCL&#x27;s work, has the game in its world. A player can walk, talk to characters and open the menu.</li><li>It is far from playable. A 77-second video shows the opening scenes in flat colours without lighting, the run with walking had a black screen, and it runs very slowly.</li><li>PortWatch says it checked that the build gets in game. The code is private, so nobody outside the group can test it, and no public project has shown a player moving.</li><li>The estimate now marks in-game as reached. Playable stays at about the evening of Sat 28 Nov.</li></ul>
+            <h3 class="t-card">Закрытая сборка позволяет попасть в игровой мир, персонаж перемещается</h3>
+            <ul class="points measure"><li>PortWatch сообщает, что CGBJ — закрытая группа, работающая над VIctory с использованием наработок XCL, — смогла запустить игру. Игрок может ходить, общаться с персонажами и открывать меню.</li><li>До состояния «играбельно» еще далеко. 77-секундное видео демонстрирует вступительные сцены в плоских цветах без освещения, при попытке ходьбы экран стал черным, а сама игра работает очень медленно.</li><li>PortWatch утверждает, что проверила запуск игры в этой сборке. Код закрыт, поэтому никто вне группы не может его протестировать, а ни один публичный проект пока не показал перемещение игрока.</li><li>Согласно оценке, этап «в игре» достигнут. Планка «играбельно» по-прежнему ожидается к вечеру субботы, 28 ноября.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T12:28:00Z" data-t="log" data-pre="">12:28</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">five-star-recomp reaches the story intro&#x27;s title card</h3>
-            <ul class="points measure"><li>On one run, five-star-recomp loaded story mode and showed the story intro&#x27;s title card before stopping. Its other runs stop earlier.</li><li>Its notes blame graphics work that writes past its buffers into the game&#x27;s own memory, probably because the console&#x27;s bounds checks are not applied yet.</li><li>Three separate code bases have now shown that card: VIctory&#x27;s, XCL&#x27;s through Palmwave, and five-star-recomp&#x27;s. None of them draws the scene after it in public code.</li></ul>
+            <h3 class="t-card">five-star-recomp доходит до заставки вступительной части сюжета</h3>
+            <ul class="points measure"><li>В одном из запусков five-star-recomp загрузила сюжетный режим и показала заставку вступительной части сюжета перед тем, как вылететь. Другие запуски прерываются раньше.</li><li>В примечаниях винят графические операции, которые записывают данные за пределы своих буферов в память игры — вероятно, из-за того, что проверки границ консоли еще не реализованы.</li><li>Три отдельные кодовые базы теперь показывают эту заставку: VIctory, XCL через Palmwave и five-star-recomp. Ни одна из них не отрисовывает сцену после нее в публичном коде.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T12:10:00Z" data-t="log" data-pre="">12:10</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Press names a private build behind the in-game footage</h3>
-            <ul class="points measure"><li>DSOGaming reports that a private build called CGBJ, based on VIctory with some of XCL&#x27;s work, has reached in-game. It has no public code or download.</li><li>That matches the stream footage logged at <time datetime="2026-11-24T11:10:00Z" data-t="clock">11:10&nbsp;UTC</time>, which X accounts had described as the VIctory team&#x27;s. Which description is right is not settled.</li><li>No public repository shows a visible world yet. Palmwave&#x27;s copy of XCL now decodes the game&#x27;s textures, and it is still chasing the bad geometry behind its blank frames.</li><li>GamesRadar now covers Leonida&#x27;s shutdown. No outlet reports a statement from Rockstar or Take-Two, and reports of wider Discord takedowns rest on Reddit posts.</li></ul>
+            <h3 class="t-card">Пресса называет закрытую сборку, стоящую за внутриигровыми кадрами</h3>
+            <ul class="points measure"><li>DSOGaming сообщает, что закрытая сборка под названием CGBJ, основанная на VIctory с использованием наработок XCL, достигла стадии внутриигрового отображения. Публичного кода или ссылок на скачивание нет.</li><li>Это совпадает с кадрами стрима, записанными в <time datetime="2026-11-24T11:10:00Z" data-t="clock">11:10&nbsp;UTC</time>, которые в X описывали как работу команды VIctory. Какое описание верно — пока неясно.</li><li>Ни один публичный репозиторий пока не показывает видимый мир. Копия XCL от Palmwave теперь декодирует текстуры игры, но всё ещё пытается исправить некорректную геометрию, скрывающуюся за пустыми кадрами.</li><li>GamesRadar теперь освещает закрытие Leonida. Ни одно издание не приводит заявлений от Rockstar или Take-Two, а сообщения о более масштабных требованиях об удалении Discord основаны лишь на постах в Reddit.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T11:49:00Z" data-t="log" data-pre="">11:49</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Palmwave shows the first mission&#x27;s opening card</h3>
-            <ul class="points measure"><li>Palmwave now presents the first mission&#x27;s opening card, its text over a plain background, before world frames that are still a single flat colour.</li><li>Its notes trace the empty picture to the world&#x27;s geometry. Through XCL&#x27;s mesh path the depth buffer receives thin needle-shaped triangles in place of the scene.</li><li>five-star-recomp now decodes every one of the game&#x27;s texture formats exactly, given decoding tables the user supplies, and its loader hands the game real texture data in place of placeholders.</li><li>VIctory has had no commit for two hours, and the stream footage of a lit scene is still unconfirmed by any repository.</li></ul>
+            <h3 class="t-card">Palmwave показывает заставку первой миссии</h3>
+            <ul class="points measure"><li>Palmwave теперь отображает заставку первой миссии — текст на простом фоне, перед кадрами мира, которые всё ещё представляют собой сплошной цвет.</li><li>В примечаниях указано, что пустое изображение связано с геометрией мира. Через путь к мешам XCL буфер глубины получает тонкие игольчатые треугольники вместо сцены.</li><li>five-star-recomp теперь точно декодирует все форматы текстур игры при условии предоставления пользователем таблиц декодирования, а загрузчик передает игре реальные данные текстур вместо заглушек.</li><li>В VIctory не было коммитов в течение двух часов, а кадры стрима с освещенной сценой до сих пор не подтверждены ни одним репозиторием.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T11:30:00Z" data-t="log" data-pre="">11:30</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Palmwave puts world frames on screen, with nothing in them yet</h3>
-            <ul class="points measure"><li>Palmwave, the XCL fork, now loads the world in about 84&nbsp;seconds and presents its frames. The picture is a flat background colour, and each frame takes from 18&nbsp;seconds to 2&nbsp;minutes of graphics work.</li><li>It got there on an RTX 5080 with the game&#x27;s hang check and two of its lighting passes patched off, and with shaders cached from earlier runs.</li><li>Its notes blame the slowness on 4.4&nbsp;GB of the game&#x27;s graphics memory sitting in system memory, where one pass took 431 ms against 0.45 ms in video memory.</li><li>No repository has confirmed the footage of a lit scene from the VIctory stream, and VIctory&#x27;s README is unchanged.</li></ul>
+            <h3 class="t-card">Palmwave выводит кадры мира на экран, пока еще пустые</h3>
+            <ul class="points measure"><li>Palmwave, форк XCL, теперь загружает мир примерно за 84&nbsp;секунды и выводит кадры. Изображение представляет собой плоский фоновый цвет, а на обработку каждого кадра уходит от 18&nbsp;секунд до 2&nbsp;минут.</li><li>Этого удалось достичь на RTX 5080 с пропатченной проверкой зависаний игры и отключенными двумя проходами освещения, а также с шейдерами, закешированными во время предыдущих запусков.</li><li>В примечаниях медленная работа объясняется тем, что 4.4&nbsp;GB видеопамяти игры находятся в системной памяти, из-за чего один проход занимает 431 мс против 0.45 мс в видеопамяти.</li><li>Ни один репозиторий не подтвердил кадры освещенной сцены со стрима VIctory, а README в VIctory остается без изменений.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T11:10:00Z" data-t="log" data-pre="">11:10</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Reports of limits on the projects&#x27; chat servers and streams</h3>
-            <ul class="points measure"><li>X accounts following the projects say VIctory&#x27;s Discord server was banned and its stream on Kick was ended, and that the team now streams elsewhere. Neither VIctory nor the press has confirmed this.</li><li>XCL&#x27;s Discord is closed to new members. A moderator&#x27;s message relayed on X says Discord limited the server.</li><li>Every tracked GitHub repository still answers, and GitHub lists no notice against any of them.</li></ul>
+            <h3 class="t-card">Сообщения об ограничениях на чат-серверах и стримах проектов</h3>
+            <ul class="points measure"><li>Аккаунты в X, следящие за проектами, сообщают, что сервер Discord команды VIctory был заблокирован, а их стрим на Kick завершен, и теперь команда стримит в другом месте. Ни VIctory, ни пресса это не подтвердили.</li><li>Сервер Discord команды XCL закрыт для новых участников. Сообщение модератора, переданное в X, гласит, что Discord ограничила работу сервера.</li><li>Все отслеживаемые репозитории GitHub по-прежнему отвечают, а GitHub не содержит никаких уведомлений против них.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T11:10:00Z" data-t="log" data-pre="">11:10</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Footage shows a partly lit scene from the game</h3>
-            <ul class="points measure"><li>A clip relayed on X from a live stream shows a dim interior with a character in it, at about 3&nbsp;frames a second. Accounts following the projects say the stream is the VIctory team&#x27;s, and VideoCardz also reports first 3D scenes.</li><li>No project&#x27;s repository reports this yet, and VIctory&#x27;s README still calls the scene dark. Treat it as unverified.</li><li>The in-game step of the estimate moves in to about a day. The playable estimate is unchanged.</li></ul>
+            <h3 class="t-card">На кадрах видна частично освещенная сцена из игры</h3>
+            <ul class="points measure"><li>Клип, переданный в X с прямой трансляции, показывает тусклый интерьер с персонажем внутри при частоте около 3&nbsp;кадров в секунду. Аккаунты, следящие за проектами, утверждают, что стрим принадлежит команде VIctory, а VideoCardz также сообщает о первых 3D-сценах.</li><li>Ни в одном репозитории проекта об этом пока не сообщается, а README команды VIctory по-прежнему называет сцену темной. Считайте это неподтвержденной информацией.</li><li>Внутриигровой этап оценки сократился примерно до одного дня. Оценка статуса «играбельно» осталась без изменений.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T10:48:00Z" data-t="log" data-pre="">10:48</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">XCL takes on VIctory&#x27;s texture decoder</h3>
-            <ul class="points measure"><li>XCL merged decoding for six of the console&#x27;s compressed texture formats at <time datetime="2026-11-24T10:38:00Z" data-t="clock">10:38&nbsp;UTC</time>. Its notes say the code is a port of VIctory&#x27;s, used with that author&#x27;s permission.</li><li>XCL&#x27;s own status line is unchanged: gameplay not reached, and its fix for the refused mesh pipelines is still an open pull request.</li><li>Kotaku now covers the race. No outlet reports a statement from Rockstar or Take-Two about these projects, and GitHub lists no notice against any of them.</li></ul>
+            <h3 class="t-card">XCL берет на вооружение декодер текстур VIctory</h3>
+            <ul class="points measure"><li>XCL объединила декодирование для шести форматов сжатых текстур консоли в <time datetime="2026-11-24T10:38:00Z" data-t="clock">10:38&nbsp;UTC</time>. В примечаниях указано, что код является портом VIctory и используется с разрешения автора.</li><li>Собственная строка статуса XCL не изменилась: до игрового процесса еще далеко, а исправление для отклоненных конвейеров мешей все еще находится в статусе открытого пул-реквеста.</li><li>Kotaku теперь освещает эту гонку. Ни одно издание не сообщает о заявлениях Rockstar или Take-Two по поводу этих проектов, а GitHub не выставляла никаких требований об удалении в их адрес.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T10:27:00Z" data-t="log" data-pre="">10:27</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">A VIctory build stays in the world for 5 minutes</h3>
-            <ul class="points measure"><li>AnyXboxX now builds on VIctory, with 24 of VIctory&#x27;s open community pull requests added. On an RTX 4070 SUPER it reports the first cutscene&#x27;s opening credits and 5&nbsp;minutes in the world without a graphics hang.</li><li>The picture is still black. AnyXboxX says the 3D scene is drawn internally, but the lighting steps are not translated yet and the world runs at 0.3 to 0.5&nbsp;frames a second.</li><li>five-star-recomp is past its graphics hang. Capping shader loops that never ended let the story load run on, and it now stops on corrupted game memory.</li><li>AnyXboxX joins the standings in second place, behind VIctory, whose code produces the result.</li></ul>
+            <h3 class="t-card">Сборка VIctory держится в мире 5 минут</h3>
+            <ul class="points measure"><li>AnyXboxX теперь собирается на VIctory с добавлением 24 открытых пул-реквестов сообщества VIctory. На RTX 4070 SUPER она отображает вступительные титры первой кат-сцены и позволяет провести 5&nbsp;минут в мире без сбоя графического драйвера.</li><li>Изображение по-прежнему черное. AnyXboxX заявляет, что 3D-сцена отрисовывается внутренними средствами, но этапы освещения еще не переведены, и мир работает со скоростью от 0,3 до 0,5&nbsp;кадра в секунду.</li><li>five-star-recomp преодолел зависание графики. Ограничение бесконечных циклов шейдеров позволило загрузке сюжета продвинуться дальше, теперь она останавливается из-за поврежденной памяти игры.</li><li>AnyXboxX занимает второе место в рейтинге, уступая VIctory, чей код выдает результат.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T10:06:00Z" data-t="log" data-pre="">10:06</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">VIctory&#x27;s results reproduced on a second PC</h3>
-            <ul class="points measure"><li>The author of AnyXboxX ran VIctory on an RTX 4070 SUPER and measured the menus, the first-run screens, the first mission&#x27;s title card and the pause menu at 30&nbsp;frames a second.</li><li>In the world that run drew 1 to 2&nbsp;frames a second and the graphics card hung after about 2&nbsp;minutes. It counted 351 shader programs VIctory does not translate yet.</li><li>VIctory&#x27;s maintainer went back to shader work at <time datetime="2026-11-24T09:53:00Z" data-t="clock">09:53&nbsp;UTC</time>. The commit says 108 of the game&#x27;s 26,096 shader programs now get past one console loop pattern and stop on a later one.</li><li>Xbox2Windows merged decoding for two compressed texture formats that it had been filling with blanks. It reports no new run.</li></ul>
+            <h3 class="t-card">Результаты VIctory подтверждены на втором ПК</h3>
+            <ul class="points measure"><li>Автор AnyXboxX запустил VIctory на RTX 4070 SUPER и замерил производительность в меню, на экранах первого запуска, на заставке первой миссии и в меню паузы — 30&nbsp;кадров в секунду.</li><li>В игровом мире этот запуск выдавал 1–2&nbsp;кадра в секунду, а видеокарта зависала примерно через 2&nbsp;минуты. Было обнаружено 351 шейдерная программа, которые VIctory пока не транслирует.</li><li>Мейнтейнер VIctory вернулся к работе над шейдерами в <time datetime="2026-11-24T09:53:00Z" data-t="clock">09:53&nbsp;UTC</time>. В коммите указано, что 108 из 26 096 шейдерных программ игры теперь проходят один цикл консоли и останавливаются на следующем.</li><li>Xbox2Windows добавил декодирование для двух форматов сжатых текстур, которые ранее заполнялись пустыми данными. О новых запусках не сообщается.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T09:44:00Z" data-t="log" data-pre="">09:44</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Estimate moves back half a day</h3>
-            <ul class="points measure"><li>The best estimate to playable moves to about 4½ days, around the evening of Sat 28 Nov, and the odds for Thursday drop to 2&nbsp;in 10.</li><li>No project has drawn the world in the ten hours since the first one got inside it. Three code bases are stopped at its first frame, each for a reason it has identified.</li><li>Legal pressure is rising: one project&#x27;s creator says Rockstar had its Discord server taken down, and two other projects have started to protect themselves.</li></ul>
+            <h3 class="t-card">Оценка сдвинулась на полдня назад</h3>
+            <ul class="points measure"><li>Лучшая оценка достижения статуса «играбельно» сдвинулась примерно на 4,5&nbsp;дня, до вечера субботы 28 ноября, а вероятность успеха к четвергу упала до 2&nbsp;из 10.</li><li>Ни один проект не смог отрисовать игровой мир за десять часов с момента первого проникновения в него. Три кодовые базы остановились на первом кадре, каждая по своей выявленной причине.</li><li>Юридическое давление растет: создатель одного из проектов сообщил, что сервер Rockstar в Discord был отключен, а два других проекта начали принимать меры для защиты.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T08:49:00Z" data-t="log" data-pre="">08:49</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">XCL spells out what its repository does not contain</h3>
-            <ul class="points measure"><li>XCL&#x27;s maintainer rewrote the top of its README to say it works only on game files the user already owns, and holds no console SDK code, keys, game data or anything for getting round copy protection.</li><li>No project changed stage. No takedown notice names a GTA VI project.</li></ul>
+            <h3 class="t-card">XCL разъясняет, что именно не содержится в его репозитории</h3>
+            <ul class="points measure"><li>Мейнтейнер XCL переписал заголовок своего README, указав, что он работает только с файлами игры, которыми пользователь уже владеет, и не содержит кода SDK консолей, ключей, игровых данных или средств для обхода защиты от копирования.</li><li>Статус ни одного проекта не изменился. Ни одно требование об удалении (DMCA) не упоминает проект GTA VI.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T08:30:00Z" data-t="log" data-pre="">08:30</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">PercyScarlett withdraws its screenshots</h3>
-            <ul class="points measure"><li>About 20&nbsp;minutes after publishing them, PercyScarlett removed its screenshots and the game&#x27;s name from its repository. Its description of how far it gets is unchanged.</li><li>VIctory&#x27;s maintainer has merged about 50 fixes from outside contributors since <time datetime="2026-11-24T07:46:00Z" data-t="clock">07:46&nbsp;UTC</time>. Its status is unchanged.</li></ul>
+            <h3 class="t-card">PercyScarlett удаляет свои скриншоты</h3>
+            <ul class="points measure"><li>Примерно через 20&nbsp;минут после публикации PercyScarlett удалил скриншоты и название игры из своего репозитория. Описание того, как далеко удалось продвинуться, осталось без изменений.</li><li>Сопровождающий VIctory принял около 50 исправлений от сторонних участников с <time datetime="2026-11-24T07:46:00Z" data-t="clock">07:46&nbsp;UTC</time>. Статус проекта не изменился.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T08:11:00Z" data-t="log" data-pre="">08:11</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">PercyScarlett shows the setup screens, with screenshots</h3>
-            <ul class="points measure"><li>PercyScarlett now shows the account picker, the intro video in full colour and the first-time setup screens on an unmodified executable. It published screenshots; the one this page checked shows the brightness screen with some letters missing from its text.</li><li>It moves from stage 4 to stage 5, in sixth place. Nine projects now show a picture from the game.</li><li>VIctory&#x27;s maintainer merged about 30 fixes from outside contributors in half an hour. Its status is unchanged.</li></ul>
+            <h3 class="t-card">PercyScarlett демонстрирует экраны настройки, есть скриншоты.</h3>
+            <ul class="points measure"><li>PercyScarlett теперь показывает выбор аккаунта, вступительный ролик в полном цвете и экраны первичной настройки на немодифицированном исполняемом файле. Были опубликованы скриншоты; на том, что проверялся на этой странице, виден экран настройки яркости, где в тексте отсутствуют некоторые буквы.</li><li>Проект переходит с 4-й на 5-ю стадию, занимая шестое место. Теперь девять проектов показывают изображение из игры.</li><li>Сопровождающий VIctory принял около 30 исправлений от сторонних участников за полчаса. Статус проекта не изменился.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T07:51:00Z" data-t="log" data-pre="">07:51</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Leonida&#x27;s creator says Rockstar had its Discord taken down</h3>
-            <ul class="points measure"><li>Press reports say Leonida&#x27;s creator wrote that Rockstar had the project&#x27;s Discord server taken down, and that this was only part of the reason for stepping away. Rockstar has not commented.</li><li>GitHub&#x27;s published complaints still show nothing against Leonida, and reports suggest its owners removed the repository themselves.</li><li>Claims on Reddit that other GTA VI Discord servers are being targeted are unconfirmed.</li><li>VIctory&#x27;s maintainer is active again after about seven hours, merging fixes from outside contributors.</li></ul>
+            <h3 class="t-card">Создатель Leonida утверждает, что Rockstar удалили Discord.</h3>
+            <ul class="points measure"><li>В прессе сообщается, что создатель Leonida написал, будто Rockstar добились удаления Discord-сервера проекта, и что это было лишь одной из причин ухода. Rockstar ситуацию не прокомментировали.</li><li>В опубликованных жалобах GitHub по-прежнему нет ничего против Leonida, а отчеты указывают на то, что владельцы удалили репозиторий самостоятельно.</li><li>Заявления на Reddit о том, что другие GTA VI Discord-серверы подвергаются атакам, не подтверждены.</li><li>Сопровождающий VIctory снова активен спустя примерно семь часов, он принимает исправления от сторонних участников.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T07:33:00Z" data-t="log" data-pre="">07:33</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Xbox2Windows qualifies its result</h3>
-            <ul class="points measure"><li>Xbox2Windows now says its run to the loading screen used a modified diagnostic copy of the executable and a debugger set to continue past assertions. Start-up of the original executable is unverified.</li><li>It moves down one place, behind OpenScarlett (Community Edition), which reports its result on an unmodified executable.</li></ul>
+            <h3 class="t-card">Xbox2Windows уточняет свой результат.</h3>
+            <ul class="points measure"><li>Xbox2Windows теперь заявляет, что запуск до экрана загрузки выполнялся с использованием модифицированной диагностической копии исполняемого файла и отладчика, настроенного на игнорирование утверждений (assertions). Запуск оригинального исполняемого файла не подтвержден.</li><li>Проект опускается на одну позицию вниз, уступая OpenScarlett (Community Edition), который сообщает о своем результате на немодифицированном исполняемом файле.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T07:14:00Z" data-t="log" data-pre="">07:14</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Three code bases are at the first frame of the world</h3>
-            <ul class="points measure"><li>Palmwave now loads the world and keeps running for up to an hour with sound, with the game&#x27;s hang check switched off. It shows nothing after loading while the world&#x27;s compute shaders compile, a few of which take up to 30&nbsp;minutes each.</li><li>five-star-recomp has traced its hang to the first frame after loading, at the game&#x27;s meshlet culling step.</li><li>A second project called OpenScarlett, from OpenCommunityEdition, joins the standings in sixth. It runs a retail game it does not name through its first screens and intro video, then stops as the scene behind the menus streams in.</li><li>VIctory, the only project to have shown a picture inside the world, has had no commit since <time datetime="2026-11-24T00:57:00Z" data-t="clock">00:57&nbsp;UTC</time>.</li></ul>
+            <h3 class="t-card">Три кодовые базы находятся на этапе отрисовки первого кадра игрового мира.</h3>
+            <ul class="points measure"><li>Palmwave теперь загружает мир и работает до часа со звуком, если отключить проверку зависаний игры. После загрузки ничего не отображается, пока компилируются вычислительные шейдеры мира, на каждый из которых уходит до 30&nbsp;минут.</li><li>five-star-recomp обнаружил, что зависание происходит на первом кадре после загрузки, на этапе отсечения мешлетов (meshlet culling) в игре.</li><li>Второй проект под названием OpenScarlett от OpenCommunityEdition занимает шестое место в рейтинге. Он запускает розничную версию игры (название не уточняется), проходит начальные экраны и вступительное видео, а затем останавливается в момент подгрузки сцены за меню.</li><li>VIctory — единственный проект, показавший изображение внутри мира, — не получал коммитов с <time datetime="2026-11-24T00:57:00Z" data-t="clock">00:57&nbsp;UTC</time>.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T06:55:00Z" data-t="log" data-pre="">06:55</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">OpenScarlett plays the game&#x27;s video</h3>
-            <ul class="points measure"><li>OpenScarlett&#x27;s newest commit reports the game&#x27;s video playing in full colour at 4K, after its interface. It moves to sixth on its own.</li><li>G6Recomp, which could not start the game before, now gets as far as creating its window. It reuses memory code from Leonida, with credit.</li></ul>
+            <h3 class="t-card">OpenScarlett воспроизводит внутриигровое видео.</h3>
+            <ul class="points measure"><li>Самый свежий коммит OpenScarlett сообщает о воспроизведении внутриигрового видео в полном цвете в 4K после интерфейса. Проект самостоятельно перемещается на шестое место.</li><li>G6Recomp, который раньше не мог запустить игру, теперь доходит до создания окна. Он использует код работы с памятью из Leonida с указанием авторства.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T05:39:00Z" data-t="log" data-pre="">05:39</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Xbox2Windows gets through setup and into loading</h3>
-            <ul class="points measure"><li>Xbox2Windows now plays the intro video, accepts the first-run setup pages and enters loading on an RTX 4060 laptop. Navigating the menus by hand is still unverified.</li><li>Four code bases have now reached loading or beyond: VIctory, XCL with its fork Palmwave, five-star-recomp and Xbox2Windows. Only VIctory is inside the world, and nobody has drawn it.</li></ul>
+            <h3 class="t-card">Xbox2Windows проходит этап настройки и переходит к загрузке.</h3>
+            <ul class="points measure"><li>Xbox2Windows теперь воспроизводит вступительное видео, принимает страницы первоначальной настройки и переходит к загрузке на ноутбуке с RTX 4060. Навигация по меню вручную пока не подтверждена.</li><li>Четыре кодовые базы достигли этапа загрузки или продвинулись дальше: VIctory, XCL с его форком Palmwave, five-star-recomp и Xbox2Windows. Только VIctory находится внутри мира, но никто еще не смог его отрисовать.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T05:03:00Z" data-t="log" data-pre="">05:03</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">five-star-recomp starts loading story mode</h3>
-            <ul class="points measure"><li>five-star-recomp now shows the game&#x27;s logo, intro art and every first-run screen, saves its settings and starts loading story mode. About six minutes into that load the graphics card hangs. It moves back up to fourth.</li><li>Odds of a playable build by Christmas go from 8&nbsp;in 10 to 7&nbsp;in 10, and the chance of a stall rises to 2&nbsp;in 10. The estimated date is unchanged.</li><li>The reason is a precedent: on 18 November GitHub published four Take-Two takedown notices against unofficial GTA V ports and their forks, including ports that needed the user&#x27;s own game files.</li></ul>
+            <h3 class="t-card">five-star-recomp начинает загрузку сюжетного режима.</h3>
+            <ul class="points measure"><li>five-star-recomp теперь отображает логотип игры, вступительные арты и все экраны первоначальной настройки, сохраняет параметры и начинает загрузку сюжетного режима. Примерно через шесть минут после начала загрузки происходит сбой графического драйвера. Проект возвращается на четвертое место.</li><li>Вероятность появления играбельной сборки к Рождеству снизилась с 8&nbsp;из 10 до 7&nbsp;из 10, а шанс застоя вырос до 2&nbsp;из 10. Ожидаемая дата осталась прежней.</li><li>Причина — прецедент: 18 ноября GitHub опубликовал четыре требования об удалении Take-Two в отношении неофициальных портов GTA V и их форков, включая порты, требующие собственных файлов игры пользователя.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T04:43:00Z" data-t="log" data-pre="">04:43</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Xbox2Windows reaches the first setup pages</h3>
-            <ul class="points measure"><li>Xbox2Windows now presents the intro video and reaches the game&#x27;s first setup pages, for narration and text size, on an RTX 4060 laptop. It moves up to fourth.</li><li>A change to how it runs one kind of loop took its intro video from about 14 to 30&nbsp;frames a second.</li></ul>
+            <h3 class="t-card">Xbox2Windows доходит до первых страниц настройки.</h3>
+            <ul class="points measure"><li>Xbox2Windows теперь отображает вступительный ролик и доходит до первых страниц настройки повествования и размера текста на ноутбуке с RTX 4060. Проект поднимается на четвертое место.</li><li>Изменение принципа работы одного из циклов позволило увеличить частоту кадров вступительного ролика с 14 до 30&nbsp;кадров в секунду.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T04:07:00Z" data-t="log" data-pre="">04:07</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">OpenScarlett reports the game&#x27;s interface on screen</h3>
-            <ul class="points measure"><li>OpenScarlett&#x27;s newest commits report the game passing all of its start-up tasks and drawing its interface at 4K and 30&nbsp;frames a second on a 4&nbsp;GB GTX 1650 Ti. It moves to stage 5.</li><li>Eight projects now show a picture from the game. One of them, VIctory, is inside the world, and none has drawn it.</li></ul>
+            <h3 class="t-card">OpenScarlett сообщает об отображении игрового интерфейса на экране.</h3>
+            <ul class="points measure"><li>Последние коммиты OpenScarlett подтверждают, что игра проходит все этапы запуска и отрисовывает интерфейс в 4K при 30 кадрах в секунду на 4&nbsp;GB GTX 1650 Ti. Проект переходит на 5-ю стадию.</li><li>Восемь проектов теперь показывают изображение из игры. Один из них, VIctory, находится внутри мира, но ни один из них не отрисовал его.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T03:49:00Z" data-t="log" data-pre="">03:49</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Xbox2Windows documents its start-up run</h3>
-            <ul class="points measure"><li>Xbox2Windows now carries the earlier contributor report in its own documentation as a measured result: about 29&nbsp;frames a second, the interface drawn, the first-run prompt answered and the intro video playing with wrong colours. It stops in texture streaming and moves up to fifth.</li><li>XCL merged six more changes, among them building pipelines an earlier run used before they are needed. Its status line is unchanged.</li><li>VIctory has had no commit since <time datetime="2026-11-24T00:57:00Z" data-t="clock">00:57&nbsp;UTC</time>.</li></ul>
+            <h3 class="t-card">Xbox2Windows документирует свой процесс запуска.</h3>
+            <ul class="points measure"><li>Xbox2Windows теперь включает отчет предыдущего участника в свою документацию как зафиксированный результат: около 29&nbsp;кадров в секунду, интерфейс отрисован, на запрос при первом запуске дан ответ, вступительный ролик воспроизводится с искаженными цветами. Процесс останавливается на потоковой передаче текстур, проект поднимается на пятое место.</li><li>В XCL было объединено еще шесть изменений, включая предварительную сборку конвейеров, которые использовались в предыдущих запусках до того, как они потребовались. Статус проекта не изменился.</li><li>В VIctory не было коммитов с <time datetime="2026-11-24T00:57:00Z" data-t="clock">00:57&nbsp;UTC</time>.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T03:13:00Z" data-t="log" data-pre="">03:13</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">GTA6-BootTest joins the standings</h3>
-            <ul class="points measure"><li>GTA6-BootTest, a project this page had missed, boots the game and draws its first interface screen through translated shaders. It joins at stage 5, in sixth place.</li><li>five-star-recomp now runs for three minutes without a crash, with real images on screen, while the game is still loading.</li><li>A community project list reports that a second, smaller project, americas-recomp, went offline on 23 November shortly before Leonida. No cause is given for either.</li></ul>
+            <h3 class="t-card">GTA6-BootTest присоединяется к турнирной таблице.</h3>
+            <ul class="points measure"><li>GTA6-BootTest, проект, который был упущен на этой странице, запускает игру и отрисовывает первый экран интерфейса через транслированные шейдеры. Он присоединяется на 5-й стадии, занимая шестое место.</li><li>five-star-recomp теперь работает в течение трех минут без вылетов, с реальными изображениями на экране, пока игра все еще загружается.</li><li>Список общественных проектов сообщает, что второй, меньший проект, americas-recomp, ушел в офлайн 23 ноября незадолго до Leonida. Причина для обоих случаев не указана.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T02:35:00Z" data-t="log" data-pre="">02:35</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Xbox2Windows reports a visible intro</h3>
-            <ul class="points measure"><li>Xbox2Windows: a contributor reports a visible intro video on an RX 9070 XT, with wrong colours and black frames after it. The project moves from stage 3 to stage 5, in sixth place, and has not yet checked a frame against a reference.</li><li>five-star-recomp is past the assert that stopped it and now streams the game&#x27;s next stage, compressed textures included. It stops at one texture layout method it has not implemented yet.</li><li>Six projects now show a picture from the game. None has drawn the world.</li></ul>
+            <h3 class="t-card">Xbox2Windows сообщает о видимом вступительном ролике.</h3>
+            <ul class="points measure"><li>Xbox2Windows: участник сообщает о видимом вступительном ролике на RX 9070 XT с искаженными цветами и черными кадрами после него. Проект переходит с 3-й на 5-ю стадию, занимая шестое место, и еще не сверял кадр с эталонным.</li><li>five-star-recomp миновал проверку, которая его останавливала, и теперь стримит следующий этап игры, включая сжатые текстуры. Он останавливается на одном методе компоновки текстур, который еще не реализован.</li><li>Шесть проектов теперь показывают изображение из игры. Ни один из них еще не отрисовал мир.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T01:58:00Z" data-t="log" data-pre="">01:58</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Estimate moves back a day</h3>
-            <ul class="points measure"><li>The best estimate to playable moves from about 3&nbsp;days to about 4, around Sat 28 Nov. Nobody has drawn the world in the three and a half hours since the first project got inside it, and frame times there are ten times or more too slow.</li><li>Palmwave now loads the world at 5 to 30&nbsp;frames a second with memory levelling off. It stops as the world starts to draw, when the game&#x27;s watchdog ends a wait for pipelines still compiling.</li><li>five-star-recomp added a disk pipeline cache. VIctory and XCL&#x27;s main branch have had no substantive change for about two hours.</li><li>Press coverage has started: outlets report the game reaching its settings and legal screens on PC, with nothing playable.</li></ul>
+            <h3 class="t-card">Оценка сдвинулась на день назад</h3>
+            <ul class="points measure"><li>Лучшая оценка до состояния «играбельно» сдвинулась примерно с 3 до 4&nbsp;дней, примерно на субботу 28 ноя. Никто не отрисовал мир за три с половиной часа с момента, как первый проект получил к нему доступ, а время кадра там в десять и более раз выше нормы.</li><li>Palmwave теперь загружает мир при 5–30 кадрах в секунду с выравниванием потребления памяти. Он останавливается в момент начала отрисовки мира, когда внутриигровой сторожевой таймер прерывает ожидание компиляции конвейеров.</li><li>five-star-recomp добавил дисковый кэш конвейеров. В основной ветке VIctory и XCL не было существенных изменений около двух часов.</li><li>Началось освещение в прессе: издания сообщают, что игра доходит до экранов настроек и юридической информации на ПК, но ничего играбельного нет.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T01:38:00Z" data-t="log" data-pre="">01:38</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Two of Leonida&#x27;s forks are gone</h3>
-            <ul class="points measure"><li>Two of the four contributor forks of Leonida that this page watches stopped answering between <time datetime="2026-11-24T00:19:00Z" data-t="clock-bare">00:19</time> and <time datetime="2026-11-24T01:37:00Z" data-t="clock">01:37&nbsp;UTC</time>. The cause is not known, and no takedown notice naming the project has been published.</li><li>five-star-recomp&#x27;s first image now shows in the right colours after a fix to 61 pipelines.</li><li>No project changed stage.</li></ul>
+            <h3 class="t-card">Два форка Leonida исчезли</h3>
+            <ul class="points measure"><li>Два из четырех форков участников Leonida, за которыми следит эта страница, перестали отвечать в период с <time datetime="2026-11-24T00:19:00Z" data-t="clock-bare">00:19</time> до <time datetime="2026-11-24T01:37:00Z" data-t="clock">01:37&nbsp;UTC</time>. Причина неизвестна, требований об удалении (DMCA) в отношении проекта не публиковалось.</li><li>Первое изображение five-star-recomp теперь отображается в правильных цветах после исправления 61 конвейера.</li><li>Ни один проект не сменил этап.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T01:19:00Z" data-t="log" data-pre="">01:19</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">five-star-recomp draws its first picture</h3>
-            <ul class="points measure"><li>five-star-recomp: the game&#x27;s interface layer and intro video now draw, its first image after hours of black frames. It moves to stage 5 and fourth place.</li><li>An assert inside the game still stops it shortly after, and one drawing fix is being merged.</li><li>XCL merged a change that skips uploading textures whose memory has not changed. Its status line is unchanged.</li><li>Five projects now show a picture from the game. None has drawn the world.</li></ul>
+            <h3 class="t-card">five-star-recomp отрисовывает свою первую картинку</h3>
+            <ul class="points measure"><li>five-star-recomp: теперь отрисовываются слой интерфейса и вступительное видео, это первое изображение после нескольких часов черных кадров. Проект переходит на 5-й этап и занимает четвертое место.</li><li>Внутренняя проверка игры по-прежнему останавливает её вскоре после запуска, сейчас идет слияние одного исправления отрисовки.</li><li>XCL объединил изменение, которое пропускает выгрузку текстур, чья память не изменилась. Статус проекта остался прежним.</li><li>Пять проектов теперь показывают изображение из игры. Ни один из них еще не отрисовал игровой мир.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T01:00:00Z" data-t="log" data-pre="">01:00</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Three more projects report start-up progress</h3>
-            <ul class="points measure"><li>Palmwave, a fork of XCL, measures a retail game it does not name into world loading on an RTX 5080: 0 to 2&nbsp;frames a second, with memory growing until the run is stopped at 140&nbsp;seconds. It joins the standings in third.</li><li>Its own fix lifts the intro video from 3.5 to about 19&nbsp;frames a second. It reports that compressed world textures are not decoded yet in this code.</li><li>Xbox2Windows says local runs of the main executable now reach graphics pipeline creation, its first report of running the title&#x27;s own code. No rendered frame is verified.</li><li>Holy-Interoperability presents its first frame of a retail title it does not name, then stops in start-up.</li></ul>
+            <h3 class="t-card">Еще три проекта сообщают о прогрессе в запуске.</h3>
+            <ul class="points measure"><li>Palmwave, форк XCL, при тестировании розничной версии неназванной игры на RTX 5080 показывает загрузку мира: от 0 до 2&nbsp;кадров в секунду, при этом потребление памяти растет, пока работа не прерывается на 140 секунде. Проект занимает третье место в турнирной таблице.</li><li>Собственный фикс повышает частоту кадров во вступительном ролике с 3,5 до примерно 19&nbsp;кадров в секунду. Сообщается, что сжатые текстуры мира в этом коде еще не декодируются.</li><li>Xbox2Windows заявляет, что локальные запуски основного исполняемого файла теперь доходят до создания графического конвейера — это первый отчет о выполнении собственного кода игры. Отрисованных кадров не зафиксировано.</li><li>Holy-Interoperability демонстрирует свой первый кадр из неназванной розничной игры, после чего останавливается на этапе запуска.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T00:39:00Z" data-t="log" data-pre="">00:39</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">XCL&#x27;s code is measured on a second PC</h3>
-            <ul class="points measure"><li>Palmwave, now built on XCL&#x27;s code, measured a retail game it does not name on an RTX 5080. It shows first screens at up to 30&nbsp;frames a second, slows to about 3&nbsp;frames a second, then crashes as memory grows while the world loads.</li><li>Its list of what separates that code from playable: memory growth in world loading, which XCL has since fixed, texture decoding failures, refused mesh pipelines and a slow phase with no known cause.</li><li>TuxBox: shader preparation now compiles 2,755 of 11,429 requests captured from its runs. Its picture is unchanged at the player-selection prompt.</li><li>VIctory merged 11 fixes from outside contributors in half an hour. Its status is unchanged.</li></ul>
+            <h3 class="t-card">Код XCL протестирован на втором ПК.</h3>
+            <ul class="points measure"><li>Palmwave, теперь собранный на базе кода XCL, протестировал розничную версию неназванной игры на RTX 5080. Он показывает первые экраны с частотой до 30&nbsp;кадров в секунду, затем замедляется до 3&nbsp;кадров в секунду и вылетает из-за роста потребления памяти во время загрузки мира.</li><li>Список препятствий на пути к статусу «играбельно»: рост потребления памяти при загрузке мира (что XCL уже исправил), ошибки декодирования текстур, отказ графических конвейеров мешей и медленная фаза работы с неизвестной причиной.</li><li>TuxBox: подготовка шейдеров теперь компилирует 2 755 из 11 429 запросов, полученных в ходе запусков. Изображение по-прежнему замирает на экране выбора игрока.</li><li>VIctory объединил 11 исправлений от сторонних участников за полчаса. Статус проекта не изменился.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-24T00:19:00Z" data-t="log" data-pre="">00:19</time> <span>24 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">VIctory draws the first mission&#x27;s title card</h3>
-            <ul class="points measure"><li>VIctory: after the world loads, the first mission&#x27;s title card now renders. It is the first picture past the loading screen that any project on this page has reported.</li><li>The scene after the card is still dark, at 0.5 to 1.8&nbsp;seconds a frame, and runs end on a graphics fault within about 55&nbsp;seconds.</li><li>five-star-recomp: the game now reads input, starts its save system and pairs a gamepad after a scripted button press. Frames are still black, and an assert inside the game stops it there.</li><li>Palmwave has switched to XCL&#x27;s code. XCL&#x27;s own status line is unchanged, and Leonida is still unreachable.</li></ul>
+            <h3 class="t-card">VIctory отрисовывает заставку первой миссии.</h3>
+            <ul class="points measure"><li>VIctory: после загрузки мира теперь отрисовывается заставка первой миссии. Это первое изображение после экрана загрузки, о котором сообщил какой-либо проект на этой странице.</li><li>Сцена после заставки остается темной, частота кадров составляет от 0,5 до 1,8&nbsp;секунды на кадр, а работа завершается сбоем графического драйвера примерно через 55&nbsp;секунд.</li><li>five-star-recomp: игра теперь считывает ввод, запускает систему сохранений и подключает геймпад после нажатия кнопки по скрипту. Кадры по-прежнему черные, и выполнение останавливается из-за внутренней ошибки (assert) в игре.</li><li>Palmwave переключился на код XCL. Статус-строка самого XCL не изменилась, а Leonida по-прежнему недоступен.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-23T23:56:00Z" data-t="log" data-pre="">23:56</time> <span>23 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Leonida halts: its lead steps away and its repository is gone</h3>
-            <ul class="points measure"><li>Leonida&#x27;s lead posted a decision to step away. Its GitHub repository no longer exists at either address, its own mirror server is down, and its chat is reported gone.</li><li>Whether a takedown was involved is not known. GitHub shows a notice page for repositories removed on a copyright complaint and has published none; contributors&#x27; forks and the lead&#x27;s other repository are still up.</li><li>The projects ahead of it are unaffected: VIctory, XCL, TuxBox and five-star-recomp were all reachable at <time datetime="2026-11-23T23:56:00Z" data-t="clock">23:56&nbsp;UTC</time>.</li></ul>
+            <h3 class="t-card">Leonida приостановлен: ведущий разработчик ушел, а репозиторий удален.</h3>
+            <ul class="points measure"><li>Ведущий разработчик Leonida объявил об уходе. Его репозиторий GitHub больше не существует ни по одному из адресов, зеркальный сервер проекта не работает, а чат, по сообщениям, удален.</li><li>Неизвестно, было ли это требование об удалении (DMCA). GitHub отображает страницу с уведомлением об удалении репозиториев по жалобе на нарушение авторских прав и не опубликовал ничего нового; форки участников и другие репозитории ведущего разработчика все еще доступны.</li><li>Проекты, стоящие выше в списке, не затронуты: VIctory, XCL, TuxBox и five-star-recomp были доступны в <time datetime="2026-11-23T23:56:00Z" data-t="clock">23:56&nbsp;UTC</time>.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-23T23:54:00Z" data-t="log" data-pre="">23:54</time> <span>23 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Leonida&#x27;s GitHub repository is unreachable again</h3>
-            <ul class="points measure"><li>Leonida: its GitHub repository stopped answering between <time datetime="2026-11-23T23:31:00Z" data-t="clock-bare">23:31</time> and <time datetime="2026-11-23T23:48:00Z" data-t="clock">23:48&nbsp;UTC</time>, at both its new address and its old one. The cause is not known. The earlier gap tonight was a move, and contributors&#x27; forks, the owner&#x27;s other repository and the project&#x27;s own mirror are all still up. No takedown notice is published.</li><li>VIctory: two more outside fixes merged. The world is still black at 1.5 to 3&nbsp;seconds a frame.</li></ul>
+            <h3 class="t-card">Репозиторий GitHub проекта Leonida снова недоступен.</h3>
+            <ul class="points measure"><li>Leonida: его репозиторий GitHub перестал отвечать в промежутке между <time datetime="2026-11-23T23:31:00Z" data-t="clock-bare">23:31</time> и <time datetime="2026-11-23T23:48:00Z" data-t="clock">23:48&nbsp;UTC</time> как по новому, так и по старому адресу. Причина неизвестна. Предыдущий перерыв сегодня был связан с переносом, а форки участников, другие репозитории владельца и зеркало проекта все еще работают. Требование об удалении не публиковалось.</li><li>VIctory: объединены еще два сторонних исправления. Мир по-прежнему черный, частота кадров составляет от 1,5 до 3&nbsp;секунд на кадр.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-23T23:31:00Z" data-t="log" data-pre="">23:31</time> <span>23 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">VIctory keeps the game world running, still black</h3>
-            <ul class="points measure"><li>VIctory: a <time datetime="2026-11-23T23:13:00Z" data-t="clock">23:13&nbsp;UTC</time> commit fixes the graphics-device failure. The world ran to a four-minute limit. The picture is black, at 1.5 to 3&nbsp;seconds a frame.</li><li>By its notes, most of the world&#x27;s geometry is drawn through a path that is switched off for now, and hundreds of draws a frame have no translated shader.</li><li>XCL: merged another batch, including the intro-video fix. Its status is unchanged.</li></ul>
+            <h3 class="t-card">VIctory поддерживает работу игрового мира, но экран все еще черный.</h3>
+            <ul class="points measure"><li>VIctory: коммит от <time datetime="2026-11-23T23:13:00Z" data-t="clock">23:13&nbsp;UTC</time> исправляет сбой графического драйвера. Мир проработал до четырехминутного лимита. Изображение черное, частота кадров — от 1,5 до 3&nbsp;секунд на кадр.</li><li>Согласно примечаниям, большая часть геометрии мира отрисовывается через путь, который пока отключен, а сотни вызовов отрисовки в кадре не имеют транслированного шейдера.</li><li>XCL: объединена еще одна пачка исправлений, включая фикс вступительного видео. Статус не изменился.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-23T23:14:00Z" data-t="log" data-pre="">23:14</time> <span>23 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">XCL merges its world-loading fix</h3>
-            <ul class="points measure"><li>XCL: the fix for storage requests that failed while the world loads is on the main branch since <time datetime="2026-11-23T22:54:00Z" data-t="clock">22:54&nbsp;UTC</time>. No picture of the world is reported yet.</li><li>VIctory: a contributor&#x27;s change gets the game past start-up on Intel processors, tested on a second machine. Its status is unchanged: the world loads and the picture is black.</li><li>Leonida: a pull request reports a repeating render loop that tries to present frames, and says visible frames are not verified.</li></ul>
+            <h3 class="t-card">XCL объединил исправление загрузки мира.</h3>
+            <ul class="points measure"><li>XCL: исправление запросов к хранилищу, которые приводили к сбоям во время загрузки мира, находится в основной ветке с <time datetime="2026-11-23T22:54:00Z" data-t="clock">22:54&nbsp;UTC</time>. Изображение мира пока не наблюдается.</li><li>VIctory: изменения от участника позволяют игре пройти этап запуска на процессорах Intel, что было протестировано на второй машине. Статус не изменился: мир загружается, но изображение черное.</li><li>Leonida: в пул-реквесте сообщается о циклическом повторении рендеринга при попытке вывода кадров; указано, что видимые кадры не проходят верификацию.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-23T22:37:00Z" data-t="log" data-pre="">22:37</time> <span>23 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">TuxBox shows the first menu on Linux</h3>
-            <ul class="points measure"><li>TuxBox: a <time datetime="2026-11-23T22:25:00Z" data-t="clock">22:25&nbsp;UTC</time> commit shows the game&#x27;s player-selection prompt at 4K on Linux. It moves to stage 5, the third project with a picture.</li><li>XCL: a contributor&#x27;s pull request fixes most of the storage requests that failed while the world loads. In the contributor&#x27;s 170-second run 16,384 requests now land and 2,227 still fail. Another pull request fixes the green screen where the intro video plays. Neither is merged.</li><li>VIctory: no commits since <time datetime="2026-11-23T22:15:00Z" data-t="clock">22:15&nbsp;UTC</time>. Leonida: merging pull requests again at its new address.</li></ul>
+            <h3 class="t-card">TuxBox показывает первое меню на Linux.</h3>
+            <ul class="points measure"><li>TuxBox: коммит в <time datetime="2026-11-23T22:25:00Z" data-t="clock">22:25&nbsp;UTC</time> демонстрирует экран выбора персонажа в 4K на Linux. Проект переходит на 5-ю стадию, став третьим проектом с изображением.</li><li>XCL: пул-реквест участника исправляет большинство ошибок запросов к хранилищу, возникавших при загрузке мира. В 170-секундном прогоне участника 16 384 запроса проходят успешно, а 2 227 всё ещё завершаются ошибкой. Другой пул-реквест исправляет «зеленый экран» во время воспроизведения вступительного видео. Ни один из них пока не слит в основную ветку.</li><li>VIctory: новых коммитов с <time datetime="2026-11-23T22:15:00Z" data-t="clock">22:15&nbsp;UTC</time> нет. Leonida: снова принимает пул-реквесты по новому адресу.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-23T22:34:00Z" data-t="log" data-pre="">22:34</time> <span>23 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">A new leader: VIctory loads the game world, with a black picture</h3>
-            <ul class="points measure"><li>VIctory, a one-person project published today, reports the game running through its first-boot screens, intro video and menus at 30&nbsp;frames a second, then loading the world in about 50&nbsp;seconds. In the world the picture is black and the graphics device fails within seconds. Tested on one machine.</li><li>It stays at stage 5: stage 6 needs a picture of the world and player control.</li><li>Correction on Leonida: its repository was not taken down. The maintainer moved it to a GitHub organisation at about <time datetime="2026-11-23T22:10:00Z" data-t="clock">22:10&nbsp;UTC</time>, and the old address stopped answering for a few minutes. Pull requests are being merged again.</li><li>This page was redesigned at <time datetime="2026-11-23T22:33:00Z" data-t="clock">22:33&nbsp;UTC</time>.</li></ul>
+            <h3 class="t-card">Новый лидер: VIctory загружает игровой мир, но изображение черное.</h3>
+            <ul class="points measure"><li>VIctory, проект от одного разработчика, опубликованный сегодня, сообщает о прохождении экранов первого запуска, вступительного видео и меню при 30 кадрах в секунду, с последующей загрузкой мира примерно за 50&nbsp;секунд. В самом мире изображение черное, а через несколько секунд происходит сбой графического драйвера. Протестировано на одной машине.</li><li>Остается на 5-й стадии: для 6-й стадии требуется изображение мира и управление персонажем.</li><li>Уточнение по Leonida: репозиторий не был удален. Владелец перенес его в организацию GitHub примерно в <time datetime="2026-11-23T22:10:00Z" data-t="clock">22:10&nbsp;UTC</time>, из-за чего старый адрес был недоступен в течение нескольких минут. Пул-реквесты снова принимаются.</li><li>Страница была обновлена в <time datetime="2026-11-23T22:33:00Z" data-t="clock">22:33&nbsp;UTC</time>.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-23T22:17:00Z" data-t="log" data-pre="">22:17</time> <span>23 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Leonida&#x27;s GitHub repository goes dark; XCL reaches the settings screens</h3>
-            <ul class="points measure"><li>Leonida: the GitHub repository answered at <time datetime="2026-11-23T22:08:00Z" data-t="clock">22:08&nbsp;UTC</time> and no longer did at <time datetime="2026-11-23T22:12:00Z" data-t="clock-bare">22:12</time>. It now responds like a repository that is missing or private. The cause is not known. Several contributors&#x27; forks, the owner&#x27;s other repository and every other project on this page were still reachable at <time datetime="2026-11-23T22:16:00Z" data-t="clock">22:16&nbsp;UTC</time>, and GitHub has published no notice.</li><li>Leonida&#x27;s own mirror is still up with the same history, last commit <time datetime="2026-11-23T21:01:00Z" data-t="clock">21:01&nbsp;UTC</time>. This page now reads Leonida from there.</li><li>XCL: the main branch goes past the first menu into the settings screens at a steady 30&nbsp;frames per second, with memory use down to about 15&nbsp;GB. Its status line says gameplay has not been reached.</li><li>Forecast unchanged for now. A confirmed takedown would push it out.</li></ul>
+            <h3 class="t-card">Репозиторий GitHub проекта Leonida стал недоступен; XCL доходит до экранов настроек.</h3>
+            <ul class="points measure"><li>Leonida: репозиторий GitHub отвечал в <time datetime="2026-11-23T22:08:00Z" data-t="clock">22:08&nbsp;UTC</time>, но перестал в <time datetime="2026-11-23T22:12:00Z" data-t="clock-bare">22:12</time>. Сейчас он выдает ошибку, характерную для отсутствующего или приватного репозитория. Причина неизвестна. Форки нескольких участников, другой репозиторий владельца и все остальные проекты на этой странице были доступны в <time datetime="2026-11-23T22:16:00Z" data-t="clock">22:16&nbsp;UTC</time>, а GitHub не публиковал никаких уведомлений.</li><li>Собственное зеркало Leonida всё ещё работает с той же историей, последний коммит был в <time datetime="2026-11-23T21:01:00Z" data-t="clock">21:01&nbsp;UTC</time>. Эта страница теперь считывает Leonida оттуда.</li><li>XCL: основная ветка проходит первое меню и переходит к экранам настроек при стабильных 30 кадрах в секунду, потребление памяти снизилось примерно до 15&nbsp;GB. В строке статуса указано, что геймплей еще не достигнут.</li><li>Прогноз пока без изменений. Подтвержденное требование об удалении приведет к исключению проекта.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-23T21:50:00Z" data-t="log" data-pre="">21:50</time> <span>23 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">No change at the front</h3>
-            <ul class="points measure"><li>XCL: main branch unchanged since <time datetime="2026-11-23T21:30:00Z" data-t="clock">21:30&nbsp;UTC</time>. In chat, the contributor who reached the menus says world loading stalls because most storage requests fail. No pull request for that yet.</li><li>PercyScarlett fixed an early device removal. five-star-recomp ruled out network access as the reason the game idles. TuxBox and OpenScarlett edged forward. None reports a picture.</li></ul>
+            <h3 class="t-card">На фронте без изменений</h3>
+            <ul class="points measure"><li>XCL: основная ветка не менялась с <time datetime="2026-11-23T21:30:00Z" data-t="clock">21:30&nbsp;UTC</time>. В чате участник, добравшийся до меню, сообщает, что загрузка мира зависает из-за сбоев большинства запросов к хранилищу. Пул-реквест для этого пока отсутствует.</li><li>PercyScarlett исправил раннее удаление устройства. five-star-recomp исключил сетевой доступ как причину простоя игры. TuxBox и OpenScarlett немного продвинулись вперед. Изображения пока нет ни у кого.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-23T21:37:00Z" data-t="log" data-pre="">21:37</time> <span>23 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Chat report: an XCL build gets through the menus and starts loading the game</h3>
-            <ul class="points measure"><li>XCL: the contributor behind the first-menus pull request said in the project&#x27;s chat at <time datetime="2026-11-23T21:36:00Z" data-t="clock">21:36&nbsp;UTC</time> that the contributor&#x27;s build now saves preferences, selects a player and begins loading into the main game. The contributor&#x27;s earlier menu report was confirmed on the main branch within about half an hour.</li><li>This is a chat message, not a commit or pull request, and it does not claim a frame of the game world or player control. XCL stays at stage 5.</li><li>Forecast: the in-game step is brought forward to about a day. The playable date is unchanged.</li></ul>
+            <h3 class="t-card">Отчет из чата: сборка XCL проходит через меню и начинает загрузку игры</h3>
+            <ul class="points measure"><li>XCL: участник, стоящий за первым пул-реквестом с меню, сообщил в чате проекта в <time datetime="2026-11-23T21:36:00Z" data-t="clock">21:36&nbsp;UTC</time>, что его сборка теперь сохраняет настройки, позволяет выбрать игрока и начинает загрузку основной игры. Его предыдущий отчет о меню был подтвержден в основной ветке примерно через полчаса.</li><li>Это сообщение из чата, а не коммит или пул-реквест, и оно не утверждает о наличии кадров игрового мира или управления персонажем. XCL остается на 5-й стадии.</li><li>Прогноз: шаг до внутриигрового процесса сокращен примерно до одного дня. Дата достижения статуса «играбельно» не изменилась.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-23T21:31:00Z" data-t="log" data-pre="">21:31</time> <span>23 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">A sixth project presents frames; no new milestone at the front</h3>
-            <ul class="points measure"><li>PercyScarlett: reaches the game&#x27;s frame loop and first present with black frames, then a GPU hang about 5&nbsp;seconds in. Added to the standings at stage 4.</li><li>XCL: about 35 more commits merged, including a fix for the menus&#x27; missing body text. Its status is unchanged: first menu at 30&nbsp;frames per second, nothing checked past it. A pull request for the mesh pipelines its minimap needs is open.</li><li>five-star-recomp: now reads its black frames as the game&#x27;s own fade from black while it waits on something.</li><li>OpenScarlett: two more boot obstacles cleared and more than 360&nbsp;frames at 4K without a crash on a 4&nbsp;GB graphics card. No picture described.</li></ul>
+            <h3 class="t-card">Шестой проект демонстрирует кадры; на фронте новых вех нет</h3>
+            <ul class="points measure"><li>PercyScarlett: достигает игрового цикла кадров и первого вывода черных кадров, затем происходит зависание GPU примерно через 5&nbsp;секунд. Добавлен в таблицу на 4-ю стадию.</li><li>XCL: влито еще около 35 коммитов, включая исправление отсутствующего текста в меню. Статус не изменился: первое меню при 30 кадрах в секунду, дальше ничего не проверялось. Открыт пул-реквест для конвейеров мешей, необходимых для мини-карты.</li><li>five-star-recomp: теперь интерпретирует свои черные кадры как внутриигровое затухание, пока игра чего-то ожидает.</li><li>OpenScarlett: устранено еще два препятствия для запуска, получено более 360&nbsp;кадров в 4K без вылетов на видеокарте с 4&nbsp;GB памяти. Изображение не описано.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-23T21:11:00Z" data-t="log" data-pre="">21:11</time> <span>23 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">No new milestone; XCL merges fast behind its first menu</h3>
-            <ul class="points measure"><li>XCL: eleven pull requests merged at <time datetime="2026-11-23T20:49:00Z" data-t="clock-bare">20:49</time> to <time datetime="2026-11-23T20:50:00Z" data-t="clock">20:50&nbsp;UTC</time> and review fixes at <time datetime="2026-11-23T20:56:00Z" data-t="clock-bare">20:56</time>. Two new pull requests go at the known gaps: one for the missing menu text, one for the mesh-shader slot that the main branch refuses. Neither is merged.</li><li>Leonida: a correction. Its README now lists the project&#x27;s own server as a mirror of the repository, so this is a mirror for now, not a move. Both copies match.</li><li>five-star-recomp, OpenScarlett and TuxBox: no change. Palmwave no longer names the game in its README.</li></ul>
+            <h3 class="t-card">Новых вех нет; XCL быстро продвигается после первого меню</h3>
+            <ul class="points measure"><li>XCL: одиннадцать пул-реквестов влиты с <time datetime="2026-11-23T20:49:00Z" data-t="clock-bare">20:49</time> до <time datetime="2026-11-23T20:50:00Z" data-t="clock">20:50&nbsp;UTC</time>, исправления по результатам ревью — в <time datetime="2026-11-23T20:56:00Z" data-t="clock-bare">20:56</time>. Два новых пул-реквеста направлены на устранение известных пробелов: один для отсутствующего текста в меню, другой для слота меш-шейдеров, который отклоняет основная ветка. Ни один из них пока не влит.</li><li>Leonida: уточнение. В его README теперь указан собственный сервер проекта как зеркало репозитория, так что пока это зеркало, а не переезд. Обе копии идентичны.</li><li>five-star-recomp, OpenScarlett и TuxBox: без изменений. Palmwave больше не упоминает название игры в своем README.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-23T20:50:00Z" data-t="log" data-pre="">20:50</time> <span>23 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">XCL&#x27;s main branch shows the first menu at 30 frames per second</h3>
-            <ul class="points measure"><li>XCL: a <time datetime="2026-11-23T20:47:00Z" data-t="clock">20:47&nbsp;UTC</time> commit by the maintainer puts the first menu on the main branch. The account prompt is visible at a steady 30&nbsp;frames per second with no crash, on a 16&nbsp;GB graphics card. It uses parts of the earlier pull request and its own memory handling. Nothing past that menu has been checked on main.</li><li>five-star-recomp: start-up loading completes and the game then idles on an early screen, still black.</li><li>OpenScarlett: reports the first frame&#x27;s three draws executing and boot moving on into render-graph set-up. No picture described.</li><li>Leonida: its main branch on GitHub moved again at <time datetime="2026-11-23T20:34:00Z" data-t="clock">20:34&nbsp;UTC</time> with two commits from the maintainer. The copy on its new server followed within a minute.</li><li>Forecast unchanged at about 3&nbsp;days. The low frame rate seen in the earlier pull request does not appear on the main branch.</li></ul>
+            <h3 class="t-card">Основная ветка XCL отображает первое меню при 30 кадрах в секунду.</h3>
+            <ul class="points measure"><li>XCL: коммит в UTC от <time datetime="2026-11-23T20:47:00Z" data-t="clock-bare">20:47</time> от мейнтейнера добавляет первое меню в основную ветку. Запрос учетной записи отображается стабильно при 30 кадрах в секунду без вылетов на видеокарте с 16&nbsp;GB памяти. Используются части предыдущего пул-реквеста и собственная система управления памятью. Дальше этого меню в основной ветке ничего не проверялось.</li><li>five-star-recomp: загрузка при запуске завершается, после чего игра зависает на раннем экране, который остается черным.</li><li>OpenScarlett: сообщается о выполнении трех отрисовок первого кадра и переходе процесса загрузки к настройке графа рендеринга. Изображение отсутствует.</li><li>Leonida: основная ветка на GitHub снова обновилась в <time datetime="2026-11-23T20:34:00Z" data-t="clock">20:34&nbsp;UTC</time> двумя коммитами от мейнтейнера. Копия на новом сервере обновилась в течение минуты.</li><li>Прогноз не изменился — около 3&nbsp;дней. Низкая частота кадров, наблюдавшаяся в предыдущем пул-реквесте, в основной ветке отсутствует.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-23T20:32:00Z" data-t="log" data-pre="">20:32</time> <span>23 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">Leonida&#x27;s official repository appears on its new server</h3>
-            <ul class="points measure"><li>Leonida: the official repository is now on the project&#x27;s own server. For now it is a copy of the GitHub repository with the same main branch, still the <time datetime="2026-11-23T18:54:00Z" data-t="clock">18:54&nbsp;UTC</time> commit. This page watches both.</li><li>XCL: the first-menus pull request is still open and unmerged. A second contributor&#x27;s rectangle-list fix already tests against what that build reported. Main branch unchanged since <time datetime="2026-11-23T18:11:00Z" data-t="clock">18:11&nbsp;UTC</time>.</li><li>Palmwave reaches its first console command list. five-star-recomp, TuxBox and OpenScarlett: no change.</li></ul>
+            <h3 class="t-card">Официальный репозиторий Leonida появился на новом сервере.</h3>
+            <ul class="points measure"><li>Leonida: официальный репозиторий теперь находится на собственном сервере проекта. На данный момент это копия репозитория GitHub с той же основной веткой, все еще на коммите от <time datetime="2026-11-23T18:54:00Z" data-t="clock">18:54&nbsp;UTC</time>. Эта страница отслеживает оба.</li><li>XCL: пул-реквест с первыми меню все еще открыт и не слит. Исправление списка прямоугольников от второго участника уже тестируется на основе данных той сборки. Основная ветка не менялась с <time datetime="2026-11-23T18:11:00Z" data-t="clock">18:11&nbsp;UTC</time>.</li><li>Palmwave доходит до первого списка консольных команд. five-star-recomp, TuxBox и OpenScarlett: без изменений.</li></ul>
           </div>
         </li>
         <li class="log__row">
           <p class="log__when"><time datetime="2026-11-23T20:25:00Z" data-t="log" data-pre="">20:25</time> <span>23 ноя</span></p>
           <div class="log__what">
-            <h3 class="t-card">XCL: a pull request reports the game&#x27;s first menus on screen</h3>
-            <ul class="points measure"><li>XCL: a contributor&#x27;s pull request, opened at <time datetime="2026-11-23T20:15:00Z" data-t="clock">20:15&nbsp;UTC</time> on top of the main branch, reports the account prompt and the legal menus on screen after about 45&nbsp;seconds of black frames, navigable with a gamepad. A four-minute run did not crash. XCL moves to stage 5.</li><li>Its limits, by its own description: one machine with a top-end graphics card, most letters missing from the menu body text, 7 to 28&nbsp;frames per second in the menus, tests not run, and nothing seen past the menus. It is not merged or reviewed.</li><li>The video noted in the last update matches it. The pull request says one later screen came out as a single solid colour, and that colour is the exact green seen in the video.</li><li>Forecast pulled in to about 3&nbsp;days.</li></ul>
+            <h3 class="t-card">XCL: пул-реквест сообщает о появлении первых меню игры на экране.</h3>
+            <ul class="points measure"><li>XCL: пул-реквест от участника, открытый в <time datetime="2026-11-23T20:15:00Z" data-t="clock">20:15&nbsp;UTC</time> поверх основной ветки, сообщает о появлении запроса учетной записи и юридических меню на экране после примерно 45&nbsp;секунд черных кадров; навигация возможна с помощью геймпада. Четырехминутный запуск прошел без вылетов. XCL переходит на 5-ю стадию.</li><li>Ограничения согласно описанию: одна машина с топовой видеокартой, большинство букв в тексте меню отсутствуют, от 7 до 28&nbsp;кадров в секунду в меню, тесты не проводились, дальше меню ничего не наблюдалось. Пул-реквест не слит и не проверен.</li><li>Видео, упомянутое в последнем обновлении, соответствует этому. В пул-реквесте говорится, что один из последующих экранов отобразился как сплошной цвет, и этот цвет в точности совпадает с зеленым цветом из видео.</li><li>Forecast pulled in to about 3&nbsp;days.</li></ul>
           </div>
         </li>
         <li class="log__row">
@@ -2878,7 +2878,7 @@ section > .wrap > h2 { margin-bottom: var(--head-gap); }
         <h2>Синхронизация и автоперевод каждые 30 минут</h2>
         <div class="btn-row">
           <a class="btn btn--primary" href="#standings">К таблице</a>
-          <a class="btn btn--secondary" href="https://github.com/vuyp/gta6-pc-race" rel="noopener" aria-label="Оригинал трекера на GitHub (391 звёзд)"><svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.6l2.6 5.27 5.82.85-4.21 4.1.99 5.8L12 16.88l-5.2 2.74.99-5.8-4.21-4.1 5.82-.85z"/></svg><span>Оригинал (vuyp)</span><span class="btn__count">391</span></a>
+          <a class="btn btn--secondary" href="https://github.com/vuyp/gta6-pc-race" rel="noopener" aria-label="Оригинал трекера на GitHub (392 звёзд)"><svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.6l2.6 5.27 5.82.85-4.21 4.1.99 5.8L12 16.88l-5.2 2.74.99-5.8-4.21-4.1 5.82-.85z"/></svg><span>Оригинал (vuyp)</span><span class="btn__count">392</span></a>
         </div>
       </div>
       <p class="close__name" aria-hidden="true">GTA VI PC Race</p>
